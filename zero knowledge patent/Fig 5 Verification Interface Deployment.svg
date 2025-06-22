@@ -1,0 +1,164 @@
+
+<svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg" style="background: white;">
+    <style>
+        .component-block {
+            fill: white;
+            stroke: black;
+            stroke-width: 2;
+        }
+        .database-block {
+            fill: white;
+            stroke: black;
+            stroke-width: 2;
+        }
+        .document-block {
+            fill: white;
+            stroke: black;
+            stroke-width: 2;
+        }
+        .user-icon {
+            fill: white;
+            stroke: black;
+            stroke-width: 2;
+        }
+        .label {
+            font-size: 12px;
+            font-weight: 600;
+            text-anchor: middle;
+            dominant-baseline: central;
+            fill: black;
+            font-family: Arial, sans-serif;
+        }
+        .numeral {
+            font-size: 11px;
+            font-weight: 600;
+            text-anchor: middle;
+            dominant-baseline: central;
+            fill: black;
+            font-family: Arial, sans-serif;
+        }
+        .title-label {
+            font-size: 16px;
+            font-weight: 600;
+            text-anchor: middle;
+            fill: black;
+            font-family: Arial, sans-serif;
+        }
+        .arrow-line {
+            stroke: black;
+            stroke-width: 2;
+            fill: none;
+        }
+        .arrow-label {
+            font-size: 10px;
+            font-weight: 500;
+            text-anchor: middle;
+            fill: black;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    
+    <defs>
+        <marker id="arrowhead" viewBox="0 0 10 10" refX="8" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="black" />
+        </marker>
+        <marker id="arrowhead-double" viewBox="0 0 10 10" refX="8" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="black" />
+        </marker>
+    </defs>
+
+    <!-- USER / POLICYHOLDER (570) - Top Left -->
+    <g class="user-icon">
+        <circle cx="120" cy="100" r="25" class="component-block"/>
+        <circle cx="120" cy="90" r="8" class="component-block"/>
+        <path d="M 105 115 Q 120 105 135 115" fill="none" stroke="black" stroke-width="2"/>
+    </g>
+    <text x="120" y="140" class="label">USER / POLICYHOLDER</text>
+    <text x="120" y="155" class="numeral">(570)</text>
+
+    <!-- ZERO-KNOWLEDGE PROOF (550) - Document Icon -->
+    <g class="document-block">
+        <path d="M 280 80 L 380 80 L 380 90 L 370 100 L 370 140 L 280 140 Z" class="component-block"/>
+        <path d="M 370 90 L 380 90 L 370 100 Z" fill="white" stroke="black" stroke-width="2"/>
+        <line x1="290" y1="110" x2="360" y2="110" stroke="black" stroke-width="1"/>
+        <line x1="290" y1="120" x2="360" y2="120" stroke="black" stroke-width="1"/>
+        <line x1="290" y1="130" x2="340" y2="130" stroke="black" stroke-width="1"/>
+    </g>
+    <text x="330" y="160" class="label">ZERO-KNOWLEDGE PROOF</text>
+    <text x="330" y="175" class="numeral">(550)</text>
+
+    <!-- THIRD-PARTY VERIFIER SYSTEM (500) - Left Side -->
+    <rect x="50" y="300" width="200" height="120" rx="4" class="component-block"/>
+    <text x="150" y="350" class="label">THIRD-PARTY VERIFIER</text>
+    <text x="150" y="370" class="label">SYSTEM</text>
+    <text x="150" y="390" class="numeral">(500)</text>
+
+    <!-- SECURE API (510) -->
+    <rect x="350" y="280" width="120" height="60" rx="4" class="component-block"/>
+    <text x="410" y="305" class="label">SECURE API</text>
+    <text x="410" y="320" class="numeral">(510)</text>
+
+    <!-- SMART CONTRACT (520) -->
+    <rect x="350" y="380" width="120" height="60" rx="4" class="component-block"/>
+    <text x="410" y="405" class="label">SMART CONTRACT</text>
+    <text x="410" y="420" class="numeral">(520)</text>
+
+    <!-- VERIFICATION INTERFACE (530) - Central Block -->
+    <rect x="550" y="300" width="180" height="140" rx="4" class="component-block"/>
+    <text x="640" y="360" class="label">VERIFICATION</text>
+    <text x="640" y="380" class="label">INTERFACE</text>
+    <text x="640" y="400" class="numeral">(530)</text>
+
+    <!-- BLOCKCHAIN LEDGER (540) - Cylinder/Database -->
+    <g class="database-block">
+        <ellipse cx="840" cy="320" rx="60" ry="20" class="component-block"/>
+        <rect x="780" y="320" width="120" height="80" class="component-block"/>
+        <ellipse cx="840" cy="400" rx="60" ry="20" class="component-block"/>
+        <line x1="790" y1="340" x2="890" y2="340" stroke="black" stroke-width="1"/>
+        <line x1="790" y1="360" x2="890" y2="360" stroke="black" stroke-width="1"/>
+        <line x1="790" y1="380" x2="890" y2="380" stroke="black" stroke-width="1"/>
+    </g>
+    <text x="840" y="450" class="label">BLOCKCHAIN LEDGER</text>
+    <text x="840" y="465" class="numeral">(540)</text>
+
+    <!-- COMPLIANCE CONFIRMATION (560) - Output Block -->
+    <rect x="550" y="520" width="180" height="50" rx="4" class="component-block"/>
+    <text x="640" y="540" class="label">COMPLIANCE CONFIRMATION</text>
+    <text x="640" y="555" class="numeral">(560)</text>
+
+    <!-- ARROWS AND FLOWS -->
+    
+    <!-- User to ZK Proof -->
+    <path d="M 145 120 L 270 110" class="arrow-line" marker-end="url(#arrowhead)"/>
+    
+    <!-- ZK Proof to Verification Interface -->
+    <path d="M 330 180 L 330 220 L 640 220 L 640 290" class="arrow-line" marker-end="url(#arrowhead)"/>
+    
+    <!-- Third-Party Verifier to Secure API -->
+    <path d="M 250 340 L 340 310" class="arrow-line" marker-end="url(#arrowhead)"/>
+    <text x="295" y="315" class="arrow-label" transform="rotate(-18 295 315)">REQUEST</text>
+    
+    <!-- Third-Party Verifier to Smart Contract -->
+    <path d="M 250 380 L 340 410" class="arrow-line" marker-end="url(#arrowhead)"/>
+    
+    <!-- Secure API to Verification Interface (bidirectional) -->
+    <path d="M 470 305 L 540 340" class="arrow-line" marker-end="url(#arrowhead)" marker-start="url(#arrowhead-double)"/>
+    
+    <!-- Smart Contract to Verification Interface (bidirectional) -->
+    <path d="M 470 415 L 540 380" class="arrow-line" marker-end="url(#arrowhead)" marker-start="url(#arrowhead-double)"/>
+    
+    <!-- Verification Interface to Blockchain Ledger (bidirectional) -->
+    <path d="M 730 360 L 770 360" class="arrow-line" marker-end="url(#arrowhead)" marker-start="url(#arrowhead-double)"/>
+    
+    <!-- Verification Interface to Compliance Confirmation -->
+    <path d="M 640 440 L 640 510" class="arrow-line" marker-end="url(#arrowhead)"/>
+    
+    <!-- Compliance Confirmation back to Third-Party Verifier -->
+    <path d="M 550 545 L 150 545 L 150 420" class="arrow-line" marker-end="url(#arrowhead)"/>
+
+    <!-- Figure Label -->
+    <text x="500" y="650" class="title-label">FIG. 5</text>
+
+</svg>

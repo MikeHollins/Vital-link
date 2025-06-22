@@ -1,0 +1,105 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIG. 1: System Architecture</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #ffffff;
+        }
+        .module-block {
+            fill: white;
+            stroke: black;
+            stroke-width: 1; /* Thin lines */
+        }
+        .label {
+            font-size: 14px;
+            font-weight: normal; /* Simple font weight */
+            text-anchor: middle;
+            dominant-baseline: central;
+            pointer-events: none;
+            fill: black;
+        }
+        .title-label {
+            font-size: 16px;
+            font-weight: bold;
+            text-anchor: middle;
+            fill: black;
+        }
+        .arrow-line {
+            stroke: black;
+            stroke-width: 1; /* Thin lines */
+            fill: none;
+        }
+        .dotted-arrow-line {
+            stroke: black;
+            stroke-width: 1; /* Thin lines */
+            fill: none;
+            stroke-dasharray: 5 5;
+        }
+    </style>
+</head>
+<body style="display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0;">
+    <div style="width: 100%; max-width: 1200px; padding: 1rem;">
+        <svg id="system-architecture-diagram" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: auto;" aria-labelledby="diagramTitle">
+            <title id="diagramTitle">FIG. 1: System Architecture</title>
+            
+            <!-- Define arrowhead marker -->
+            <defs>
+                <marker id="arrowhead" viewBox="0 0 10 10" refX="8" refY="5"
+                    markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="black" />
+                </marker>
+            </defs>
+
+            <!-- Diagram Title -->
+            <text x="600" y="30" class="title-label">FIG. 1</text>
+
+            <!-- Data Ingestion Module (110) -->
+            <rect x="50" y="150" width="200" height="80" rx="2" class="module-block"/>
+            <text x="150" y="190" class="label" dy="-0.5em">Data Ingestion Module<tspan x="150" dy="1.2em">(110)</tspan></text>
+
+            <!-- AI-Powered Pattern Recognition Engine (120) -->
+            <rect x="350" y="140" width="220" height="100" rx="2" class="module-block"/>
+            <text x="460" y="190" class="label">
+                <tspan x="460" dy="-0.6em">AI-Powered Pattern</tspan>
+                <tspan x="460" dy="1.2em">Recognition Engine (120)</tspan>
+            </text>
+
+            <!-- Healthcare Standards Encoder (130) -->
+            <rect x="670" y="150" width="200" height="80" rx="2" class="module-block"/>
+            <text x="770" y="190" class="label">
+                <tspan x="770" dy="-0.6em">Healthcare Standards</tspan>
+                <tspan x="770" dy="1.2em">Encoder (130)</tspan>
+            </text>
+            
+            <!-- Smart Contract Engine (140) -->
+            <rect x="950" y="150" width="200" height="80" rx="2" class="module-block"/>
+            <text x="1050" y="190" class="label">
+                <tspan x="1050" dy="-0.6em">Smart Contract Engine</tspan>
+                <tspan x="1050" dy="1.2em">(140)</tspan>
+            </text>
+
+            <!-- Verification API (150) -->
+            <rect x="950" y="350" width="200" height="80" rx="2" class="module-block"/>
+            <text x="1050" y="390" class="label">Verification API (150)</text>
+
+            <!-- ARROWS -->
+            <!-- 110 -> 120 -->
+            <path d="M 250 190 H 340" class="arrow-line" marker-end="url(#arrowhead)"/>
+            
+            <!-- 120 -> 130 -->
+            <path d="M 570 190 H 660" class="arrow-line" marker-end="url(#arrowhead)"/>
+            
+            <!-- 130 -> 140 -->
+            <path d="M 870 190 H 940" class="arrow-line" marker-end="url(#arrowhead)"/>
+            
+            <!-- 140 -> 150 (Dotted) -->
+            <path d="M 1050 230 V 340" class="dotted-arrow-line" marker-end="url(#arrowhead)"/>
+
+        </svg>
+    </div>
+</body>
+</html>

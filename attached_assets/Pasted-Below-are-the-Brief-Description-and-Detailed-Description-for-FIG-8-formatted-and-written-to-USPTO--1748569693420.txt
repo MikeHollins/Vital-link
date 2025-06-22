@@ -1,0 +1,27 @@
+Below are the Brief Description and Detailed Description for FIG. 8, formatted and written to USPTO standards and optimized for strength and clarity:
+
+⸻
+
+Brief Description of the Drawings (for FIG. 8)
+
+[0016]
+FIG. 8 is a flowchart diagram illustrating the privacy and consent management framework of the zero-knowledge health data verification system, including consent capture, audit trail generation, and data deletion logic in compliance with GDPR, HIPAA, and jurisdictional privacy laws.
+
+⸻
+
+Detailed Description (for FIG. 8)
+
+[0042]
+Referring now to FIG. 8, the system includes a Privacy and Consent Management Framework implemented as a sequence of interlinked modules operating at both client and server levels.
+
+The process begins with a Consent Capture Interface (810), which solicits and records user permission for health data processing. Consent metadata includes timestamped authorization, scope of data use, and revocation conditions. This information is securely logged and cryptographically signed.
+
+Next, an Audit Trail Generation Module (820) tracks access, processing, and proof generation events associated with each health data session. The audit trail includes hardware identifiers, session timestamps, verification endpoints, and outcome flags. All logs are stored in an immutable ledger format with cryptographic hash anchoring for integrity verification.
+
+A Consent Status Validator (830) continuously evaluates the current validity of consent based on user actions, jurisdictional constraints, and system policies. If consent is withdrawn or expires, downstream proof generation and data processing are automatically halted.
+
+A Data Deletion Engine (840) is triggered upon consent revocation or expiration. It initiates secure deletion of biometric data and associated proofs from local and cloud storage systems, in accordance with GDPR Article 17 (“right to erasure”) and HIPAA minimum necessary requirements. The deletion event itself is recorded in the audit trail to ensure transparency and regulatory auditability.
+
+Finally, a Compliance Response Module (850) generates regulatory compliance logs, consent status snapshots, and proof-of-deletion tokens, which may be provided to third-party auditors or regulatory bodies as required.
+
+This privacy and consent enforcement system ensures that all health data processing is lawful, transparent, and reversible, and supports both real-time and batch-mode enforcement workflows in multi-jurisdictional contexts.

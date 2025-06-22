@@ -1,0 +1,33 @@
+CREATE a new, black and white flow diagram for FIG. 6, illustrating 'Consent and Privacy Lifecycle Management' according to the precise steps and components described below. Ensure the diagram is clear, logically structured, and strictly adheres to USPTO drawing rules.
+
+General Drawing Rules (Apply to this figure):
+
+Strictly black and white. No shades of gray or color.
+Clear, uniformly thick, solid black lines for all shapes and arrows.
+No frames or borders around the diagram.
+All text labels within process blocks should be in ALL CAPS.
+All reference numerals should be in Arabic numerals (e.g., 600), enclosed in parentheses, and placed clearly near the component or step they identify.
+Figure label "FIG. 6" centered directly below the entire diagram (remove any top label).
+Maintain consistent spacing and a clean, legible layout.
+Components and Flow (Sequential Steps in the Lifecycle):
+
+DATA INGESTION & USER CONSENT (600): A rectangular process block labeled 'DATA INGESTION & USER CONSENT' (600). This is the starting point.
+
+CONSENT STORAGE (610): A data storage icon (e.g., a cylinder or database symbol) labeled 'CONSENT STORAGE' (610). This represents where user consent choices are recorded. Draw a unidirectional arrow from (600) to (610).
+
+POLICY ENGINE (620): A rectangular processing block labeled 'POLICY ENGINE' (620). This is where consent is evaluated against applicable policies. Draw a unidirectional arrow from (610) to (620).
+
+DATA PROCESSING (with Consent Enforcement) (630): A prominent rectangular process block labeled 'DATA PROCESSING (WITH CONSENT ENFORCEMENT)' (630). This represents the core data handling with active enforcement of user preferences. Draw a unidirectional arrow from (620) to (630).
+
+DATA RETENTION & EXPIRY (640): A rectangular process block labeled 'DATA RETENTION & EXPIRY' (640). This handles the lifecycle of data based on retention policies and consent withdrawal/expiry. Draw a unidirectional arrow from (630) to (640).
+
+CONSENT AUDIT & REVOCATION (650): A rectangular process block labeled 'CONSENT AUDIT & REVOCATION' (650). This allows for auditing consent records and processing user revocation requests. Draw a bidirectional arrow between (640) and (650), indicating interaction in both directions (expiry triggering audit, or revocation initiating the process). Also, draw a unidirectional arrow from (600) 'DATA INGESTION & USER CONSENT' to (650) 'CONSENT AUDIT & REVOCATION' to represent users directly managing their consent.
+
+DATA DELETION / ANONYMIZATION (660): A rectangular process block labeled 'DATA DELETION / ANONYMIZATION' (660). This is the final step for data that reaches its end of lifecycle or whose consent has been revoked. Draw a unidirectional arrow from (640) to (660) and a unidirectional arrow from (650) to (660).
+
+Stylistic Notes:
+
+Arrange the blocks in a logical flow, generally from top to bottom or left to right, representing the progression of the consent and privacy lifecycle.
+Use clear arrows with arrowheads to indicate the direction of flow.
+Ensure sufficient spacing between blocks and labels to maintain legibility.
+The bidirectional arrow between (640) and (650) should be clearly identifiable as such (with arrowheads at both ends).

@@ -1,0 +1,10 @@
+{
+  "heartRate": "心率",
+  "bloodPressure": "血压",
+  "steps": "步数",
+  "sleepDuration": "睡眠时长",
+  "sleepQuality": "睡眠质量",
+  "bpm": "次/分",
+  "hours": "小时",
+  "minutes": "分钟"
+}

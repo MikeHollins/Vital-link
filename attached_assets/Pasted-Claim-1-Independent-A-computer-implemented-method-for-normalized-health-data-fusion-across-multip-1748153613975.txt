@@ -1,0 +1,62 @@
+Claim 1 (Independent):
+A computer-implemented method for normalized health data fusion across multiple heterogeneous platforms, comprising:
+a) concurrently receiving health measurements from multiple data sources, each with distinct data schemas, units, and temporal granularities;
+b) employing a trained semantic analysis model to automatically map each source’s data schema to a unified healthcare standard schema;
+c) detecting and resolving conflicts among overlapping measurements using a machine learning-based algorithm that adaptively weights data sources based on historical reliability metrics, device performance scores, and contextual parameters;
+d) synthesizing a consistent, high-confidence health data stream with associated confidence scores and confidence intervals indicating measurement reliability; and
+e) providing real-time health insights and analytics derived from the normalized, conflict-resolved data.
+
+Claim 2 (Dependent):
+The method of claim 1, wherein the conflict resolution algorithm employs device-specific accuracy scores learned through continuous performance evaluation, dynamically adjusting source weights based on data fidelity over time.
+
+Claim 3 (Dependent):
+The method of claim 1, wherein the semantic mapping employs a deep neural network trained on healthcare API documentation, enabling automatic generation of new platform-specific data adapters that adaptively learn to handle schema changes.
+
+Claim 4 (Dependent):
+The method of claim 1, wherein the data integration process employs a federated learning architecture to collaboratively improve the schema mapping and conflict resolution models across multiple client devices while preserving privacy by avoiding sharing raw data.
+
+Claim 5 (Dependent):
+The method of claim 1, wherein the normalization system supports automatic detection of schema or API changes in connected platforms, triggering real-time auto-configuration of data adapters without manual reprogramming.
+
+Claim 6 (Dependent):
+The method of claim 1, wherein the temporal conflict resolution employs a weighted algorithm that prioritizes recent measurements but retains historical context to improve accuracy and consistency over historical periods.
+
+Claim 7 (Dependent):
+The method of claim 1, wherein the system provides a graphical dashboard displaying real-time measurement confidence scores, and supports rollback mechanisms with audit logs to facilitate correction and regulatory compliance.
+
+Claim 8 (Dependent):
+The method of claim 1, wherein the conflict resolution employs a hybrid model that combines rule-based biological plausibility ranges with machine learning-based anomaly detection to improve conflict resolution robustness.
+
+Claim 9 (Dependent):
+The method of claim 1, wherein the normalization produces a semantically rich, standardized data output compatible with electronic health records (EHR) systems via standards such as HL7 FHIR, ensuring interoperability.
+
+Claim 10 (Dependent):
+The method of claim 1, wherein the system supports GDPR and HIPAA compliance by implementing consent management, encrypted data handling, and data portability features integrated into the normalization pipeline.
+
+Claim 11 (System):
+A health data normalization system comprising:  
+
+a semantic analysis engine trained to automatically map diverse health data schemas to a common standard schema;
+a conflict resolution module employing adaptive, machine learning-based weighting strategies based on device reliability and contextual parameters;
+a federated learning framework to improve mapping and conflict resolution models without sharing raw health data;
+and an audit and rollback infrastructure supporting regulatory compliance and data integrity verification.
+Claim 12 (Dependent):
+The system of claim 11, wherein the semantic analysis engine uses deep learning models trained on healthcare API schemas and sample data to generate and update platform-specific data adapters automatically.
+
+Claim 13 (Dependent):
+The system of claim 11, wherein the conflict resolution module applies a weighted algorithm incorporating device reliability scores, recency of measurements, and biological plausibility constraints to resolve data conflicts.
+
+Claim 14 (Dependent):
+The system of claim 11, further comprising an encrypted data store with compliance management features supporting GDPR data erasure, user consent control, and cross-platform data portability.
+
+Claim 15 (Dependent):
+The system of claim 11, wherein the adaptation engines automatically detect changes in connected platform APIs and schemas, dynamically updating data adapters without manual reprogramming.
+
+Claim 16 (Dependent):
+The system of claim 11, wherein the normalization process provides confidence scores and confidence intervals for each measurement, supporting transparency and regulatory auditability.
+
+Claim 17 (Dependent):
+The system of claim 11, wherein the conflict resolution employs a hybrid approach combining biological plausibility checks with anomaly detection algorithms based on real-time machine learning.
+
+Claim 18 (Dependent):
+The system of claim 11, wherein the schema mapping and conflict resolution models are trained collaboratively across multiple client devices using federated learning, ensuring data privacy while improving model accuracy.

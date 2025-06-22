@@ -1,0 +1,40 @@
+Prompt for AI Agent:
+
+"In server/ai-health-normalization.ts, refactor all calls to the Gemini model to use its native JSON output mode. In each method, update the model.generateContent(prompt) call to model.generateContent({ contents: [{ role: 'user', parts: [{ text: prompt }] }], generationConfig: { responseMimeType: 'application/json' } }). Then, replace the entire const jsonMatch = text.match(...) block and its error handling with a direct JSON.parse(response.text()). This change is critical for system stability."
+
+Change 2: Improve Type Safety by Eliminating any
+Where: Throughout the file, particularly in the interface definitions and method signatures.
+
+What to Change:
+
+Create specific TypeScript interfaces for each expected JSON structure (e.g., StandardizedData, TemporalAnalysis, FusionResult).
+Replace all instances of the any type with these new, specific interfaces.
+Why: Using any defeats the purpose of TypeScript and hides potential bugs. Strong typing ensures data integrity at compile time, improves code readability, and enables better autocompletion for developers.
+
+Prompt for AI Agent:
+
+"In server/ai-health-normalization.ts, enhance type safety. Create new TypeScript interfaces that precisely match the JSON structures defined in the AI prompts (e.g., IStandardizedData, ITemporalAnalysis). Replace all uses of the any type in the HealthDataInput, NormalizationResult, and all method return types with these new, strongly-typed interfaces."
+
+Change 3: Refactor Model and Prompt Management
+Where: The AIHealthNormalizationEngine class.
+
+What to Change:
+
+Move the genAI and model instantiation to the class constructor or as private member variables so they are created only once.
+Extract the large, multi-line prompt strings from the methods into private, static class members or a separate prompts.ts constants file.
+Why: Instantiating the AI model inside each method is inefficient. Creating it once improves performance. Externalizing the prompts separates the "logic" (the code) from the "instructions" (the prompts), making the code cleaner and the prompts much easier to manage and update.
+
+Prompt for AI Agent:
+
+"Refactor the AIHealthNormalizationEngine class in server/ai-health-normalization.ts. First, move the genAI and model initializations into the class constructor to prevent redundant instantiation. Second, extract all multi-line prompt strings into their own private static readonly properties at the top of the class."
+
+Change 4: Enhance Error Handling Strategy
+Where: The try...catch blocks within each analysis method.
+
+What to Change: Instead of returning a hardcoded default object on failure, re-throw a custom, more informative error.
+
+Why: Returning a default "dummy" object hides the failure from the calling function (normalizeHealthData). This can lead to silent failures and incorrect data being processed and stored. Throwing an error ensures that the pipeline fails explicitly and can be handled correctly at a higher level.
+
+Prompt for AI Agent:
+
+"In server/ai-health-normalization.ts, update the error handling in all catch blocks. Instead of logging the error and returning a default object, re-throw a new custom error that wraps the original error, for example: throw new Error(Temporal analysis failed: ${error.message});. This ensures failures are propagated correctly up the call stack."

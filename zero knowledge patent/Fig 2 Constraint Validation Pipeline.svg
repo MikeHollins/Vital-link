@@ -1,0 +1,121 @@
+<svg viewBox="0 0 400 1070" xmlns="http://www.w3.org/2000/svg" style="background: white;">
+    <style>
+        .flow-shape {
+            fill: white;
+            stroke: black;
+            stroke-width: 1.5;
+        }
+        .optional-block {
+            fill: white;
+            stroke: black;
+            stroke-width: 1.5;
+            stroke-dasharray: 6 4;
+        }
+        .label {
+            font-size: 14px;
+            font-weight: 500;
+            text-anchor: middle;
+            dominant-baseline: central;
+            font-family: Arial, sans-serif;
+        }
+        .title-label {
+            font-size: 16px;
+            font-weight: 600;
+            text-anchor: middle;
+            font-family: Arial, sans-serif;
+        }
+        .arrow-line {
+            stroke: black;
+            stroke-width: 1.5;
+            fill: none;
+        }
+    </style>
+    
+    <defs>
+        <marker id="arrowhead" viewBox="0 0 10 10" refX="8" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="black" />
+        </marker>
+    </defs>
+
+    <!-- Input Data -->
+    <rect x="100" y="80" width="200" height="50" rx="25" class="flow-shape" />
+    <text x="200" y="100" class="label">Biometric Data</text>
+    <text x="200" y="115" class="label">(200)</text>
+
+    <!-- Arrow from Input -->
+    <path d="M 200 130 V 170" class="arrow-line" marker-end="url(#arrowhead)"/>
+
+    <!-- Process Block 210 -->
+    <rect x="100" y="180" width="200" height="60" rx="4" class="flow-shape" />
+    <text x="200" y="200" class="label">Physiological</text>
+    <text x="200" y="215" class="label">Thresholds</text>
+    <text x="200" y="230" class="label">(210)</text>
+
+    <!-- Arrow from 210 to 220 -->
+    <path d="M 200 240 V 280" class="arrow-line" marker-end="url(#arrowhead)"/>
+
+    <!-- Process Block 220 -->
+    <rect x="100" y="290" width="200" height="60" rx="4" class="flow-shape" />
+    <text x="200" y="310" class="label">Chronological</text>
+    <text x="200" y="325" class="label">Ordering</text>
+    <text x="200" y="340" class="label">(220)</text>
+    
+    <!-- Arrow from 220 to 230 -->
+    <path d="M 200 350 V 390" class="arrow-line" marker-end="url(#arrowhead)"/>
+
+    <!-- Optional Process Block 230 -->
+    <rect x="100" y="400" width="200" height="60" rx="4" class="optional-block" />
+    <text x="200" y="420" class="label">Optional: Circadian</text>
+    <text x="200" y="435" class="label">Rhythm Validator</text>
+    <text x="200" y="450" class="label">(230)</text>
+
+    <!-- Arrow from 230 to 240 -->
+    <path d="M 200 460 V 500" class="arrow-line" marker-end="url(#arrowhead)"/>
+    
+    <!-- Process Block 240 -->
+    <rect x="100" y="510" width="200" height="60" rx="4" class="flow-shape" />
+    <text x="200" y="530" class="label">Environmental</text>
+    <text x="200" y="545" class="label">Metadata Module</text>
+    <text x="200" y="560" class="label">(240)</text>
+
+    <!-- Arrow from 240 to 250 -->
+    <path d="M 200 570 V 610" class="arrow-line" marker-end="url(#arrowhead)"/>
+
+    <!-- Process Block 250 -->
+    <rect x="100" y="620" width="200" height="60" rx="4" class="flow-shape" />
+    <text x="200" y="640" class="label">Jurisdictional Policy</text>
+    <text x="200" y="655" class="label">Parameters</text>
+    <text x="200" y="670" class="label">(250)</text>
+    
+    <!-- Arrow to 255 -->
+    <path d="M 200 680 V 720" class="arrow-line" marker-end="url(#arrowhead)"/>
+
+    <!-- Process Block 255 -->
+    <rect x="100" y="730" width="200" height="60" rx="4" class="flow-shape" />
+    <text x="200" y="750" class="label">Combined Validation</text>
+    <text x="200" y="765" class="label">Logic</text>
+    <text x="200" y="780" class="label">(255)</text>
+
+    <!-- Arrow to 260 -->
+    <path d="M 200 790 V 830" class="arrow-line" marker-end="url(#arrowhead)"/>
+
+    <!-- Process Block 260 -->
+    <rect x="100" y="840" width="200" height="60" rx="4" class="flow-shape" />
+    <text x="200" y="860" class="label">Verifiable Proof</text>
+    <text x="200" y="875" class="label">of Readiness</text>
+    <text x="200" y="890" class="label">(260)</text>
+
+    <!-- Arrow to 270 -->
+    <path d="M 200 900 V 940" class="arrow-line" marker-end="url(#arrowhead)"/>
+
+    <!-- Process Block 270 -->
+    <rect x="100" y="950" width="200" height="60" rx="4" class="flow-shape" />
+    <text x="200" y="970" class="label">Command Authority /</text>
+    <text x="200" y="985" class="label">Verifier</text>
+    <text x="200" y="1000" class="label">(270)</text>
+
+    <!-- Figure Label (USPTO Format) -->
+    <text x="200" y="1040" class="title-label">FIG. 2</text>
+
+</svg>

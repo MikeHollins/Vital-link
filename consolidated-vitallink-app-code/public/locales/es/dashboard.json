@@ -1,0 +1,11 @@
+{
+  "welcomeMessage": "Bienvenido a su panel de salud",
+  "healthOverview": "Su resumen integral de salud",
+  "quickConnect": "Conexión Rápida",
+  "connectedDevices": "Dispositivos Conectados",
+  "healthMetrics": "Métricas de Salud",
+  "dailySteps": "Pasos Diarios",
+  "weeklyProgress": "Progreso Semanal",
+  "dailyGoals": "Metas Diarias",
+  "connectPlatformsDescription": "Conecta nuevas plataformas de salud para centralizar tus datos"
+}

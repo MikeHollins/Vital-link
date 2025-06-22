@@ -1,0 +1,14 @@
+Brief Description of the Drawings (for insertion in drawing list)
+
+[0014] FIG. 6 is a flowchart illustrating multiple application-specific verification workflows, including insurance claim automation, research study integration, and military field deployment, all leveraging privacy-preserving zero-knowledge proof generation and jurisdiction-aware compliance enforcement.
+
+⸻
+
+Detailed Description of the Invention (associated paragraph)
+
+[0030] FIG. 6 depicts a series of application workflows demonstrating how the disclosed system supports privacy-preserving verification of health data across diverse operational contexts. The illustrated pathways include:
+	•	Insurance Claim Automation, in which a user’s device locally validates biometric data such as daily activity or blood pressure against a predefined policy threshold. A zero-knowledge proof (ZKP) is generated without exposing raw health data and is submitted via API to an insurance smart contract platform for automated claims processing.
+	•	Clinical Research Study Verification, where a research participant’s wearable device generates a ZKP attesting compliance with study protocols (e.g., medication adherence or sleep duration targets). The proof is submitted to the sponsor’s platform for audit without disclosing identifiable health data, maintaining regulatory compliance with IRB, HIPAA, and GDPR standards.
+	•	Military Deployment Scenario, in which edge-based biometric sensors validate mission-readiness metrics such as cardiovascular response or metabolic rate. A ZKP is produced entirely on-device, even in disconnected environments, and queued for later blockchain anchoring or offline secure transfer to command systems once a trusted connection is reestablished.
+
+Each workflow is jurisdiction-aware and dynamically applies region-specific constraint models and compliance rules, based on GPS metadata, IP geolocation, or user-defined regulatory preferences. These examples demonstrate the flexibility of the system in enforcing cryptographic health verification without centralized data exposure.

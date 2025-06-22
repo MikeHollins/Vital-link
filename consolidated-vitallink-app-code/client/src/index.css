@@ -1,0 +1,448 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 3D perspective for card stack animations */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fountain firework animations for each direction */
+.fountain-icon-1 {
+  animation: fountainUpLeft1 3s ease-out infinite;
+  animation-delay: 0s;
+}
+.fountain-icon-2 {
+  animation: fountainUpLeft2 3.5s ease-out infinite;
+  animation-delay: 1s;
+}
+.fountain-icon-3 {
+  animation: fountainUpRight1 2.5s ease-out infinite;
+  animation-delay: 0.5s;
+}
+.fountain-icon-4 {
+  animation: fountainUpRight2 3s ease-out infinite;
+  animation-delay: 2s;
+}
+.fountain-icon-5 {
+  animation: fountainUp1 4s ease-out infinite;
+  animation-delay: 1.5s;
+}
+.fountain-icon-6 {
+  animation: fountainUp2 3.5s ease-out infinite;
+  animation-delay: 3s;
+}
+.fountain-icon-7 {
+  animation: fountainUpRightDiag 3.5s ease-out infinite;
+  animation-delay: 2.5s;
+}
+.fountain-icon-8 {
+  animation: fountainUpLeftDiag 4s ease-out infinite;
+  animation-delay: 4s;
+}
+
+/* Firework animations shooting from button edges */
+@keyframes fountainUpLeft1 {
+  0% { opacity: 0; transform: translate(0, 0) scale(0.5); }
+  20% { opacity: 0.8; transform: translate(-40px, -20px) scale(0.8); }
+  50% { opacity: 1; transform: translate(-80px, -40px) scale(1); }
+  80% { opacity: 0.6; transform: translate(-120px, -60px) scale(0.9); }
+  100% { opacity: 0; transform: translate(-160px, -80px) scale(0.3); }
+}
+
+@keyframes fountainUpLeft2 {
+  0% { opacity: 0; transform: translate(0, 0) scale(0.5); }
+  20% { opacity: 0.7; transform: translate(-30px, 10px) scale(0.7); }
+  50% { opacity: 1; transform: translate(-60px, 20px) scale(1); }
+  80% { opacity: 0.5; transform: translate(-90px, 30px) scale(0.8); }
+  100% { opacity: 0; transform: translate(-120px, 40px) scale(0.2); }
+}
+
+@keyframes fountainUpRight1 {
+  0% { opacity: 0; transform: translate(0, 0) scale(0.5); }
+  20% { opacity: 0.8; transform: translate(40px, -20px) scale(0.8); }
+  50% { opacity: 1; transform: translate(80px, -40px) scale(1); }
+  80% { opacity: 0.6; transform: translate(120px, -60px) scale(0.9); }
+  100% { opacity: 0; transform: translate(160px, -80px) scale(0.3); }
+}
+
+@keyframes fountainUpRight2 {
+  0% { opacity: 0; transform: translate(0, 0) scale(0.5); }
+  20% { opacity: 0.7; transform: translate(30px, 10px) scale(0.7); }
+  50% { opacity: 1; transform: translate(60px, 20px) scale(1); }
+  80% { opacity: 0.5; transform: translate(90px, 30px) scale(0.8); }
+  100% { opacity: 0; transform: translate(120px, 40px) scale(0.2); }
+}
+
+@keyframes fountainUp1 {
+  0% { opacity: 0; transform: translate(0, 0) scale(0.5); }
+  20% { opacity: 0.8; transform: translate(-10px, -40px) scale(0.8); }
+  50% { opacity: 1; transform: translate(-20px, -80px) scale(1); }
+  80% { opacity: 0.6; transform: translate(-30px, -120px) scale(0.9); }
+  100% { opacity: 0; transform: translate(-40px, -160px) scale(0.3); }
+}
+
+@keyframes fountainUp2 {
+  0% { opacity: 0; transform: translate(0, 0) scale(0.5); }
+  20% { opacity: 0.7; transform: translate(10px, -35px) scale(0.7); }
+  50% { opacity: 1; transform: translate(20px, -70px) scale(1); }
+  80% { opacity: 0.5; transform: translate(30px, -105px) scale(0.8); }
+  100% { opacity: 0; transform: translate(40px, -140px) scale(0.2); }
+}
+
+@keyframes fountainUpRightDiag {
+  0% { opacity: 0; transform: translate(0, 0) scale(0.5); }
+  20% { opacity: 0.8; transform: translate(30px, 40px) scale(0.8); }
+  50% { opacity: 1; transform: translate(60px, 80px) scale(1); }
+  80% { opacity: 0.6; transform: translate(90px, 120px) scale(0.9); }
+  100% { opacity: 0; transform: translate(120px, 160px) scale(0.3); }
+}
+
+@keyframes fountainUpLeftDiag {
+  0% { opacity: 0; transform: translate(0, 0) scale(0.5); }
+  20% { opacity: 0.7; transform: translate(-30px, 40px) scale(0.7); }
+  50% { opacity: 1; transform: translate(-60px, 80px) scale(1); }
+  80% { opacity: 0.5; transform: translate(-90px, 120px) scale(0.8); }
+  100% { opacity: 0; transform: translate(-120px, 160px) scale(0.2); }
+}
+
+.smooth-scroll {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
+}
+
+.smooth-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.smooth-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.smooth-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.5);
+  border-radius: 3px;
+}
+
+.smooth-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(156, 163, 175, 0.8);
+}
+
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+/* Responsive viewport and device optimization */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Ensure all containers are responsive */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Mobile-first responsive design */
+* {
+  box-sizing: border-box;
+}
+
+/* Prevent horizontal scroll on mobile */
+.no-horizontal-scroll {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* Mobile optimizations */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Allow text selection for inputs and content areas */
+input, textarea, [contenteditable], .selectable {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+/* Proper scrolling behavior */
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* Viewport optimizations */
+body {
+  position: relative;
+  overflow-x: hidden;
+  font-size: 16px; /* Prevent zoom on input focus */
+}
+
+/* Button and input optimizations */
+button, input, select, textarea {
+  -webkit-appearance: none;
+  border-radius: 0;
+  font-size: 16px; /* Prevent zoom */
+}
+
+/* Smooth scrolling for all containers */
+.scroll-container {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+}
+
+/* Ensure proper scrolling on all devices */
+* {
+  box-sizing: border-box;
+}
+
+/* Fix any overflow issues */
+#root {
+  min-height: 100vh;
+}
+
+:root {
+  /* VitalLink Brand Colors - Modern, Medical Tech Inspired */
+  --background: 210 30% 98%;
+  --foreground: 224 71% 4%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 224 71% 4%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 224 71% 4%;
+
+  /* Teal Primary */
+  --primary: 174 75% 37%;
+  --primary-foreground: 0 0% 100%;
+
+  /* Blue Secondary */
+  --secondary: 209 76% 45%;
+  --secondary-foreground: 0 0% 100%;
+
+  --muted: 210 20% 96%;
+  --muted-foreground: 220 8% 46%;
+
+  --accent: 174 75% 93%;
+  --accent-foreground: 174 75% 22%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 220 13% 91%;
+  --input: 220 13% 91%;
+  --ring: 174 75% 37%;
+
+  --radius: 0.65rem;
+
+  --sidebar-background: 174 75% 37%;
+  --sidebar-foreground: 0 0% 100%;
+  --sidebar-primary: 0 0% 100%;
+  --sidebar-primary-foreground: 174 75% 37%;
+  --sidebar-accent: 174 60% 32%;
+  --sidebar-accent-foreground: 0 0% 100%;
+  --sidebar-border: 174 60% 32%;
+  --sidebar-ring: 0 0% 100%;
+
+  /* Vibrant Chart Colors */
+  --chart-1: 174 75% 37%;
+  --chart-2: 209 76% 45%; 
+  --chart-3: 262 83% 58%;
+  --chart-4: 336 86% 67%;
+  --chart-5: 27 96% 56%;
+}
+
+.dark {
+  --background: 224 71% 4%;
+  --foreground: 210 30% 98%;
+
+  --card: 224 64% 6%;
+  --card-foreground: 210 30% 98%;
+
+  --popover: 224 64% 6%;
+  --popover-foreground: 210 30% 98%;
+
+  /* Teal Primary - Brighter in Dark Mode */
+  --primary: 174 75% 45%;
+  --primary-foreground: 0 0% 100%;
+
+  /* Blue Secondary - Brighter in Dark Mode */
+  --secondary: 209 76% 55%;
+  --secondary-foreground: 0 0% 100%;
+
+  --muted: 224 40% 12%;
+  --muted-foreground: 215 25% 65%;
+
+  --accent: 174 75% 22%;
+  --accent-foreground: 174 75% 93%;
+
+  --destructive: 0 70% 45%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 224 40% 15%;
+  --input: 224 40% 15%;
+  --ring: 174 75% 45%;
+
+  --sidebar-background: 224 64% 8%;
+  --sidebar-foreground: 0 0% 100%;
+  --sidebar-primary: 174 75% 45%; 
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 224 40% 15%;
+  --sidebar-accent-foreground: 0 0% 100%;
+  --sidebar-border: 224 40% 15%;
+  --sidebar-ring: 174 75% 45%;
+
+  /* Brighter Chart Colors for Dark Mode */
+  --chart-1: 174 75% 45%;
+  --chart-2: 209 76% 55%;
+  --chart-3: 262 83% 65%;
+  --chart-4: 336 86% 65%;
+  --chart-5: 27 96% 65%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+/* Fix scrolling issues */
+.scroll-container {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.page-content {
+  min-height: 100vh;
+  padding-bottom: 2rem;
+  overflow-y: auto;
+}
+
+/* Ensure proper scrolling on all devices */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Text truncation utilities */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+/* Recharts tooltip custom styles */
+.recharts-tooltip-wrapper {
+  outline: none !important;
+}
+
+.recharts-default-tooltip {
+  @apply bg-background !important;
+  @apply text-foreground !important;
+  @apply border-border !important;
+  @apply shadow-lg !important;
+  @apply py-2 px-3 !important;
+  @apply rounded-md !important;
+  @apply border !important;
+}
+
+.recharts-tooltip-label {
+  @apply text-sm font-medium !important;
+  @apply mb-1 !important;
+}
+
+.recharts-tooltip-item {
+  @apply text-xs !important;
+}
+
+/* Custom styles for health widgets */
+.health-widget-container {
+  @apply flex flex-col h-full;
+}
+
+.health-widget-header {
+  @apply flex justify-between items-center mb-4;
+}
+
+.health-widget-title {
+  @apply text-base font-medium;
+}
+
+.health-widget-body {
+  @apply flex-1;
+}
+
+.health-widget-footer {
+  @apply mt-4 flex items-center justify-between;
+}
+
+.health-score-circle {
+  @apply relative inline-flex rounded-full;
+}
+
+.health-score-label {
+  @apply absolute inset-0 flex flex-col items-center justify-center;
+}
+
+/* Hide scrollbar but keep functionality */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* Internet Explorer and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari, and Opera */
+}

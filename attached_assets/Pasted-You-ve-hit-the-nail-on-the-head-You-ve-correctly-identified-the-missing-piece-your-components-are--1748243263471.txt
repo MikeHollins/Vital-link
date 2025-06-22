@@ -1,0 +1,82 @@
+You've hit the nail on the head! You've correctly identified the missing piece: your components are not yet using the translation system you've built.
+Here's a breakdown of why it's not working and what you need to do differently:
+Why It's Not Working (As You Correctly Stated):
+ * Hardcoded Text: Your components have text like "Health Overview" directly embedded in the JSX. The React Context and your t() function are available, but nothing is invoking them for these specific strings.
+ * No Call to t(): The t() function is the bridge between your translation dictionaries and your UI. If it's not called, the translations can't be looked up and displayed.
+What You Should Be Doing Differently (The Solution):
+You need to go through your components and replace every user-facing string that needs to be translated with a call to your t() function, passing the appropriate translation key.
+Here's the pattern:
+ * Identify Hardcoded Strings: Go into each component (like your health dashboard). Find all text that the user will see (titles, labels, button text, paragraphs, etc.).
+ * Define Translation Keys: For each of these strings, decide on a unique "key." This key will be used to look up the translation in your dictionaries. For example:
+   * "Health Overview" might become the key 'healthOverview'
+   * "Steps" might become 'steps'
+   * "Heart Rate" might become 'heartRate'
+   * "Welcome to your dashboard!" might become 'dashboardWelcomeMsg'
+ * Use the t() Function in JSX:
+   * Import your useLanguage hook (or however you access t()) in each component.
+   * Call the hook to get the t function.
+   * Replace the hardcoded string with {t('yourTranslationKey')}.
+Example (Conceptual):
+Let's say you have a HealthDashboard component:
+Before (Hardcoded):
+// Inside your HealthDashboard.jsx
+// ... (imports and other component logic)
+
+function HealthDashboard() {
+  // const { t } = useLanguage(); // You have this, but it's not used for the text below
+
+  return (
+    <div>
+      <h1>Health Overview</h1> {/* Hardcoded */}
+      <p>Steps: 10,000</p>     {/* "Steps:" is Hardcoded */}
+      <p>Heart Rate: 75 bpm</p> {/* "Heart Rate:" is Hardcoded */}
+      <button>View Details</button> {/* Hardcoded */}
+    </div>
+  );
+}
+
+export default HealthDashboard;
+
+After (Using t() function):
+// Inside your HealthDashboard.jsx
+import { useLanguage } from './your-language-context-path'; // Adjust path
+
+function HealthDashboard() {
+  const { t } = useLanguage(); // Get the translation function
+
+  return (
+    <div>
+      <h1>{t('healthOverview')}</h1> {/* Using t() */}
+      <p>{t('stepsLabel')}: 10,000</p>     {/* Using t() for the label */}
+      <p>{t('heartRateLabel')}: 75 bpm</p> {/* Using t() for the label */}
+      <button>{t('viewDetailsButton')}</button> {/* Using t() */}
+    </div>
+  );
+}
+
+export default HealthDashboard;
+
+ * Update Your Translation Dictionaries:
+   Ensure your translation files (e.g., en.json, es.json) have entries for these new keys:
+   en.json (example):
+   {
+  "healthOverview": "Health Overview",
+  "stepsLabel": "Steps",
+  "heartRateLabel": "Heart Rate",
+  "viewDetailsButton": "View Details",
+  "dashboard": "Dashboard" // Assuming you have this key for other parts
+  // ... other translations
+}
+
+   es.json (example):
+   {
+  "healthOverview": "Resumen de Salud",
+  "stepsLabel": "Pasos",
+  "heartRateLabel": "Frecuencia Cardíaca",
+  "viewDetailsButton": "Ver Detalles",
+  "dashboard": "Tablero"
+  // ... other translations
+}
+
+In summary:
+The system you've set up (Context, hook, t() function) is the correct foundation. The missing step is to diligently go through your components and replace all display text with calls to t('yourKey'), ensuring those keys are defined in your translation files. Once you do this, changing the language via your context will trigger re-renders, and the t() function will pick up the correct translations for the new language.

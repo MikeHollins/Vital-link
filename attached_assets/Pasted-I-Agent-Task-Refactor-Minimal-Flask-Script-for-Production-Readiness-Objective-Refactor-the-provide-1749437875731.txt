@@ -1,0 +1,47 @@
+I Agent Task: Refactor Minimal Flask Script for Production Readiness
+Objective: Refactor the provided Python Flask script to align with modern best practices. The goals are to improve security, make the configuration more flexible, and prepare the structure for future scalability.
+
+File to Refactor: app.py
+
+Change 1: Separate Application Logic from Server Execution
+Where: The if __name__ == '__main__': block.
+What to Change: Remove the app.run() call entirely. The Python script should only define the app object and its routes. The web server should be managed by a dedicated production-grade WSGI server like Gunicorn.
+Why: The built-in Flask development server (app.run()) is not secure, stable, or performant enough for a production environment. Separating the application from the server is a fundamental best practice. The application should be run with a command like gunicorn --bind 0.0.0.0:5000 --workers 4 app:app.
+Change 2: Implement Environment-Based Configuration
+Where: At the top of the script.
+What to Change: Instead of hardcoding the host and port, read these values from environment variables using Python's os module. Provide sensible defaults if the variables are not set.
+Why: This makes the application portable. The same code can be run in development, testing, and production environments with different configurations without needing any code changes, which is a critical practice for modern software deployment.
+Change 3: Return Structured JSON Responses
+Where: The hello_world route function.
+What to Change: Modify the function to return a JSON object using Flask's jsonify utility instead of a plain text string.
+Why: Modern web APIs almost always communicate using JSON. It provides a structured data format that is easily parsed by clients (like a web frontend or another service). Returning structured data is more scalable and robust than returning plain text.
+Final Implementation Code:
+Your final output must be the following refactored app.py file, which incorporates all the recommended best practices.
+
+Python
+
+import os
+from flask import Flask, jsonify
+
+# Create the Flask application instance
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+  """
+  A simple health check endpoint that returns a structured JSON response.
+  """
+  # Best Practice: Return JSON objects for API endpoints
+  response = {
+    "message": "Hello, World!",
+    "status": "ok"
+  }
+  return jsonify(response)
+
+# Note: The 'if __name__ == "__main__"' block is removed.
+# The application should be started with a production WSGI server.
+# Example command using Gunicorn:
+# gunicorn --bind ${HOST}:${PORT} --workers 4 app:app
+#
+# To run in development with Flask's built-in server, you can use the command:
+# FLASK_APP=app flask run --host=0.0.0.0 --port=5000

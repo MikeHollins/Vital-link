@@ -1,0 +1,20 @@
+"ONLY adjust the provided black and white diagram for FIG. 2 ("Fig 2 Constraint Validation Pipeline.svg" or the currently provided image) according to the following precise instructions. DO NOT change the existing shapes, lines, text labels within the blocks, arrows, or the logical flow of the diagram.
+
+Specific Adjustments Required:
+
+Add the following reference numerals, enclosed in parentheses, to the corresponding blocks as indicated. Ensure the numerals are clearly legible, placed near the block they identify, do not overlap with lines or text, and maintain a consistent size with existing numerals:
+
+The block labeled 'Biometric Data' needs the numeral (200).
+The block labeled 'Physiological' needs the numeral (210).
+The block labeled 'Chronological Ordering (220)' - ensure the existing '(220)' remains clear and correctly associated. If it's missing or unclear, add it.
+The block labeled 'Circadian Rhythm Validator (230)' needs the numeral (230).
+The block labeled 'Environmental Metadata Module (240)' needs the numeral (240).
+Verify and ensure the following blocks at the bottom of the diagram are present and clearly labeled with their corresponding reference numerals:
+
+The block representing 'Verifiable Proof of Readiness' must have the numeral (260). If this block is missing from the current view, ensure it is included in the adjusted image with an arrow leading from 'Combined Validation Logic (255)'.
+The block representing 'Command Authority / Verifier' must have the numeral (270). Ensure there is a clear arrow leading from 'Verifiable Proof of Readiness (260)' to this block.
+Relocate the figure label:
+
+Remove the current text "FIG. 2: Constraint Validation Pipeline" from the top of the diagram.
+Add the label "FIG. 2" centered directly below the entire diagram. Ensure this label is in a larger and more prominent font size than the reference numerals within the diagram.
+Strictly adhere to maintaining the existing visual style, line thickness, arrow types, and the content of the text labels within the process blocks. The sole purpose of this adjustment is to add missing reference numerals and reposition the figure label to comply with USPTO formatting preferences."

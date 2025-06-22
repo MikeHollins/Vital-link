@@ -1,0 +1,88 @@
+✅ OFFICIAL ORDER OF A UTILITY PATENT APPLICATION
+
+As required by 37 CFR §1.77, the standard order for the specification and associated materials is:
+
+⸻
+
+📄 1. Title of the Invention
+	•	Should be short, specific, and technically accurate (preferably <500 characters).
+	•	Avoid marketing terms, broad generalities, or vague phrases.
+
+⸻
+
+📌 2. Cross-Reference to Related Applications (if any)
+	•	Used for continuation, CIP, or claiming benefit under 35 U.S.C. §120 or §119.
+	•	If there are none, state: “None.”
+
+⸻
+
+🧾 3. Statement Regarding Federally Sponsored Research or Development (if applicable)
+	•	Only include if U.S. government funding supported the invention.
+	•	If not applicable, it may be omitted entirely.
+
+⸻
+
+🔐 4. Names of the Parties to a Joint Research Agreement (if applicable)
+	•	Applies only in limited §103(c) circumstances.
+	•	If not applicable, it may be omitted.
+
+⸻
+
+🌐 5. Reference to a Sequence Listing, Computer Program Listing, or Incorporation by Reference (if any)
+	•	Mandatory for biotech/genetic sequence-related filings (per WIPO ST.25 or ST.26).
+	•	Omit if irrelevant to your invention.
+
+⸻
+
+📖 6. Background of the Invention
+
+Divided into two sub-sections:
+	•	Field of the Invention — 1–2 sentences summarizing the technical area.
+	•	Description of Related Art — Describes problems in the prior art that your invention addresses. Can cite patents, but don’t include legal arguments.
+
+⸻
+
+📑 7. Brief Summary of the Invention
+	•	A concise (1–3 paragraphs) summary of what the invention is and does.
+	•	Describe the key inventive concept and how it differs from the prior art.
+	•	Do not use this section for legal arguments or claim language.
+
+⸻
+
+🖼️ 8. Brief Description of the Drawings
+	•	One paragraph per figure.
+	•	Must use “Figure X shows…” format.
+	•	Every figure listed here must appear in the application.
+
+⸻
+
+🔍 9. Detailed Description of the Invention
+	•	This is the core technical section.
+	•	Should:
+	•	Describe every element of every figure,
+	•	Include at least one embodiment that enables the full scope of the independent claims,
+	•	Reference figures with numerals (e.g., “Referring to FIG. 2…”).
+	•	May include alternatives and variations to preserve scope.
+
+⸻
+
+🔣 10. Claims
+	•	Begin on a separate page.
+	•	Must be numbered consecutively.
+	•	First word of each claim should be “What is claimed is:” (then numbered claims follow).
+	•	At least one claim is required.
+	•	Must have no internal figure references and must be written in complete sentences.
+
+⸻
+
+🧬 11. Abstract of the Disclosure
+	•	≤150 words, in narrative form.
+	•	Should summarize the technical problem, the solution, and the main utility.
+	•	Should not contain legal phrases or claim-like language.
+
+⸻
+
+🗂️ 12. Drawings (if any)
+	•	Placed at the end of the application or in a separate drawing section.
+	•	Black and white line drawings, labeled “FIG. 1,” “FIG. 2,” etc.
+	•	Each figure must have a caption in the “Brief Description of the Drawings” and reference numerals in the drawings and description.

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#000"/>
+    </marker>
+  </defs>
+  
+  <!-- White background -->
+  <rect width="1200" height="800" fill="#FFFFFF"/>
+  
+  <!-- Title -->
+  <text x="600" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000">
+    Figure 3: NFTme Health Data Tokenization System
+  </text>
+  
+  <!-- Raw Health Data Section -->
+  <rect x="50" y="80" width="200" height="250" fill="#FFFFFF" stroke="#000" stroke-width="3" rx="8"/>
+  <text x="150" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000">
+    Raw Health Data Sources
+  </text>
+  
+  <rect x="70" y="130" width="160" height="35" fill="#FFFFFF" stroke="#000" stroke-width="2" rx="5"/>
+  <text x="150" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#000">
+    Daily Step Count: 12,847
+  </text>
+  
+  <rect x="70" y="180" width="160" height="35" fill="#FFFFFF" stroke="#000" stroke-width="2" rx="5"/>
+  <text x="150" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#000">
+    Sleep Hours: 7.5
+  </text>
+  
+  <rect x="70" y="230" width="160" height="35" fill="#FFFFFF" stroke="#000" stroke-width="2" rx="5"/>
+  <text x="150" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#000">
+    Heart Rate: 72 BPM
+  </text>
+  
+  <rect x="70" y="280" width="160" height="35" fill="#F0F0F0" stroke="#000" stroke-width="2" rx="5"/>
+  <text x="150" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#000">
+    User ID: [REDACTED]
+  </text>
+  
+  <!-- PHI Sanitization Section -->
+  <rect x="350" y="80" width="220" height="250" fill="#FFFFFF" stroke="#000" stroke-width="3" rx="8"/>
+  <text x="460" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000">
+    PHI Sanitization Process
+  </text>
+  
+  <rect x="370" y="130" width="180" height="40" fill="#FFE6E6" stroke="#FF0000" stroke-width="3" rx="5"/>
+  <text x="460" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#000">
+    PII Removal Engine
+  </text>
+  <text x="460" y="158" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#000">
+    NLP Transformer (99.7% accuracy)
+  </text>
+  
+  <rect x="370" y="185" width="180" height="40" fill="#FFFFFF" stroke="#000" stroke-width="2" rx="5"/>
+  <text x="460" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#000">
+    Data Anonymization
+  </text>
+  <text x="460" y="213" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#000">
+    Replace IDs with hashes
+  </text>
+  
+  <rect x="370" y="240" width="180" height="40" fill="#FFFFFF" stroke="#000" stroke-width="2" rx="5"/>
+  <text x="460" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#000">
+    HIPAA Compliance Check
+  </text>
+  <text x="460" y="268" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#000">
+    Validate privacy standards
+  </text>
+  
+  <rect x="370" y="295" width="180" height="25" fill="#F8F8F8" stroke="#000" stroke-width="2" rx="5"/>
+  <text x="460" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#000">
+    Sanitized Output
+  </text>
+  
+  <!-- NFT Generation Section -->
+  <rect x="650" y="80" width="200" height="250" fill="#FFFFFF" stroke="#000" stroke-width="3" rx="8"/>
+  <text x="750" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000">
+    NFT Generation
+  </text>
+  
+  <rect x="670" y="130" width="160" height="35" fill="#FFFFFF" stroke="#000" stroke-width="2" rx="5"/>
+  <text x="750" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#000">
+    Metadata Creation
+  </text>
+  
+  <rect x="670" y="180" width="160" height="35" fill="#FFFFFF" stroke="#000" stroke-width="2" rx="5"/>
+  <text x="750" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#000">
+    Smart Contract Deploy
+  </text>
+  
+  <rect x="670" y="230" width="160" height="35" fill="#FFFFFF" stroke="#000" stroke-width="2" rx="5"/>
+  <text x="750" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#000">
+    Token Minting
+  </text>
+  
+  <rect x="670" y="280" width="160" height="35" fill="#FFFFFF" stroke="#000" stroke-width="2" rx="5"/>
+  <text x="750" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#000">
+    OpenSea Listing
+  </text>
+  
+  <!-- Blockchain Storage Section -->
+  <rect x="950" y="80" width="200" height="250" fill="#FFFFFF" stroke="#000" stroke-width="3" rx="8"/>
+  <text x="1050" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000">
+    Blockchain Storage
+  </text>
+  
+  <rect x="970" y="130" width="160" height="35" fill="#FFFFFF" stroke="#000" stroke-width="2" rx="5"/>
+  <text x="1050" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#000">
+    Immutable Record
+  </text>
+  
+  <rect x="970" y="180" width="160" height="35" fill="#FFFFFF" stroke="#000" stroke-width="2" rx="5"/>
+  <text x="1050" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#000">
+    Ownership Proof
+  </text>
+  
+  <rect x="970" y="230" width="160" height="35" fill="#FFFFFF" stroke="#000" stroke-width="2" rx="5"/>
+  <text x="1050" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#000">
+    Transfer History
+  </text>
+  
+  <rect x="970" y="280" width="160" height="35" fill="#FFFFFF" stroke="#000" stroke-width="2" rx="5"/>
+  <text x="1050" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#000">
+    Verification Layer
+  </text>
+  
+  <!-- Data Flow Arrows -->
+  <line x1="250" y1="205" x2="340" y2="205" stroke="#000" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="295" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#000">Raw Data</text>
+  
+  <line x1="570" y1="205" x2="640" y2="205" stroke="#000" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="605" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#000">Clean Data</text>
+  
+  <line x1="850" y1="205" x2="940" y2="205" stroke="#000" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="895" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#000">NFT Token</text>
+  
+  <!-- Example NFT Metadata -->
+  <rect x="200" y="380" width="800" height="200" fill="#F8F8F8" stroke="#000" stroke-width="2" rx="8"/>
+  <text x="600" y="405" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000">
+    Example NFT Metadata Structure
+  </text>
+  
+  <text x="220" y="430" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#000">
+    {
+  </text>
+  <text x="240" y="450" font-family="Arial, sans-serif" font-size="11" fill="#000">
+    "name": "Health Achievement Token #12847",
+  </text>
+  <text x="240" y="470" font-family="Arial, sans-serif" font-size="11" fill="#000">
+    "description": "Verified daily step goal completion",
+  </text>
+  <text x="240" y="490" font-family="Arial, sans-serif" font-size="11" fill="#000">
+    "achievement_type": "fitness_milestone",
+  </text>
+  <text x="240" y="510" font-family="Arial, sans-serif" font-size="11" fill="#000">
+    "verification_hash": "0x7b2f8a9c...",
+  </text>
+  <text x="240" y="530" font-family="Arial, sans-serif" font-size="11" fill="#000">
+    "compliance_status": "HIPAA_compliant",
+  </text>
+  <text x="240" y="550" font-family="Arial, sans-serif" font-size="11" fill="#000">
+    "timestamp": "2024-03-15T10:30:00Z"
+  </text>
+  <text x="220" y="570" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#000">
+    }
+  </text>
+  
+  <!-- Reference Footer -->
+  <text x="50" y="780" font-family="Arial, sans-serif" font-size="10" fill="#000">
+    Process Flow: Raw Health Data → PHI Sanitization → NFT Generation → Blockchain Storage
+  </text>
+</svg>

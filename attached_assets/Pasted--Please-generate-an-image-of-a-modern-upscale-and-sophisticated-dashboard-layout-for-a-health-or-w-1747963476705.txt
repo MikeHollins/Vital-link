@@ -1,0 +1,16 @@
+"Please generate an image of a modern, upscale, and sophisticated dashboard layout for a health or wellness application.
+The background should incorporate subtle, elegant color gradients or textures to provide depth. The overall color palette should feel rich and contemporary.
+The layout should include the following key sections:
+ * Heart Rate Graph: This section should feature a line graph displaying heart rate data. Overlaid on this graph, subtly integrated, should be a casual, almost hand-drawn-style system diagram illustrating the connection to a beating heart. Additionally, the heart rate line itself should have a subtle 'beating heart' graphic element – perhaps a slight pulsation or a small animated heart icon moving along the line in sync with the data. Haptic feedback is implied in the interaction design but doesn't need to be visually represented.
+ * Sleep Graph: This section should display sleep data. Next to this graph, include a digitally created, realistic graphic of a sleeping human figure (from the shoulders up or a full body silhouette). This figure should have a subtle, lifelike movement correlated to the sleep stage depicted in the graph. For example, during light sleep, there might be slight, gentle movements, and during deep sleep, the figure would be still.
+Ensure all graphical elements have a digitally created, realistic aesthetic with attention to detail and subtle textures to convey a sense of quality and sophistication. The overall impression should be clean, intuitive, and visually engaging, reflecting a modern and upscale design."
+Key elements of this description and why they are important for the AI:
+ * Overall Style: "Modern, upscale, sophisticated look" sets the general aesthetic.
+ * Color and Background: Specifying "subtle, elegant color gradients or textures" and "rich and contemporary color palette" guides the AI on the visual feel.
+ * Specific Sections: Clearly naming the "Heart Rate Graph" and "Sleep Graph" helps the AI structure the layout.
+ * Detailed Feature Descriptions:
+   * Heart Rate: Describing the "beating heart graphic," "casual system diagram," and the desired animation along the line provides specific visual instructions.
+   * Sleep: Detailing the "sleeping human graphic" and its "subtle, lifelike movement correlated to the sleep stage" gives the AI clear direction for this interactive element.
+ * Graphic Style: "Digitally created, realistic graphics" and "attention to detail and subtle textures" ensure a high-quality visual output.
+ * Implied Interaction: Mentioning "haptic feedback" informs the design intent even though it's not directly visual.
+ * Overall Impression: Reinforcing "clean, intuitive, and visually engaging" helps the AI create a user-friendly design.

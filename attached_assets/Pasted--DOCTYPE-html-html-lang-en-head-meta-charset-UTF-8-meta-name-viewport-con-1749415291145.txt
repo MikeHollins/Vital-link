@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIG. 3: Synergistic System Operation</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #ffffff;
+        }
+        .system-block, .attestation-shape {
+            fill: white;
+            stroke: black;
+            stroke-width: 1; /* Thin lines */
+        }
+        .label {
+            font-size: 14px;
+            font-weight: normal; /* Simple font weight */
+            text-anchor: middle;
+            dominant-baseline: central;
+            pointer-events: none;
+            fill: black;
+        }
+        .title-label {
+            font-size: 16px;
+            font-weight: bold;
+            text-anchor: middle;
+            fill: black;
+        }
+        .arrow-line {
+            stroke: black;
+            stroke-width: 1; /* Thin lines */
+            fill: none;
+        }
+    </style>
+</head>
+<body style="display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0;">
+    <div style="width: 100%; max-width: 1000px; padding: 1rem;">
+        <svg id="synergy-diagram" viewBox="0 0 900 400" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: auto;" aria-labelledby="diagramTitle">
+            <title id="diagramTitle">FIG. 3: Synergistic System Operation</title>
+            
+            <!-- Define arrowhead marker -->
+            <defs>
+                <marker id="arrowhead" viewBox="0 0 10 10" refX="8" refY="5"
+                    markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="black" />
+                </marker>
+            </defs>
+
+            <!-- Diagram Title -->
+            <text x="450" y="40" class="title-label">FIG. 3</text>
+
+            <!-- Dynamic ZK Verification System (310) -->
+            <rect x="50" y="150" width="250" height="100" rx="2" class="system-block"/>
+            <text x="175" y="200" class="label">
+                <tspan x="175" dy="-0.6em">Dynamic ZK Verification</tspan>
+                <tspan x="175" dy="1.2em">System (310)</tspan>
+            </text>
+
+            <!-- Context-Aware ZKP Attestation (320) -->
+            <rect x="375" y="160" width="180" height="80" rx="2" class="attestation-shape"/>
+            <text x="465" y="200" class="label">
+                <tspan x="465" dy="-0.6em">Context-Aware ZKP</tspan>
+                <tspan x="465" dy="1.2em">Attestation (320)</tspan>
+            </text>
+
+            <!-- NFTME System (330) -->
+            <rect x="625" y="150" width="250" height="100" rx="2" class="system-block"/>
+            <text x="750" y="200" class="label">NFTME System (330)</text>
+
+            <!-- ARROWS -->
+            <!-- 310 -> 320 -->
+            <path d="M 300 200 H 365" class="arrow-line" marker-end="url(#arrowhead)"/>
+            
+            <!-- 320 -> 330 -->
+            <path d="M 555 200 H 615" class="arrow-line" marker-end="url(#arrowhead)"/>
+            
+        </svg>
+    </div>
+</body>
+</html>

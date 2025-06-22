@@ -1,0 +1,10 @@
+{
+  "summary": {
+    "totalEvents": 0,
+    "successfulEvents": 0,
+    "failedEvents": 0,
+    "byEventType": {},
+    "byRequirementCategory": {}
+  },
+  "events": []
+}

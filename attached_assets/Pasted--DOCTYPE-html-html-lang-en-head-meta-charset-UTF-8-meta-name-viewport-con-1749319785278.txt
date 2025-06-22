@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIG. 5: Verification Interface Deployment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+        }
+        .actor-block, .system-block, .interface-block {
+            fill: white;
+            stroke: black;
+            stroke-width: 1.5;
+        }
+        .endpoint-block {
+            fill: white;
+            stroke: black;
+            stroke-width: 1;
+        }
+        .label, .response-label {
+            font-size: 14px;
+            font-weight: 500;
+            text-anchor: middle;
+            dominant-baseline: central;
+            pointer-events: none;
+            fill: black;
+        }
+        .title-label {
+            font-size: 16px;
+            font-weight: 600;
+            text-anchor: middle;
+            fill: black;
+        }
+        .arrow-line {
+            stroke: black;
+            stroke-width: 1.5;
+            fill: none;
+        }
+        .barrier-line {
+            stroke: black;
+            stroke-width: 1.5;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+    <div class="p-6 sm:p-8 rounded-lg w-full max-w-5xl">
+        <!-- SVG container for the deployment diagram -->
+        <svg id="deployment-diagram" viewBox="0 0 900 500" preserveAspectRatio="xMidYMid meet" class="w-full h-full" aria-labelledby="diagramTitle">
+            <title id="diagramTitle">FIG. 5: Verification Interface Deployment</title>
+            
+            <!-- Define arrowhead marker -->
+            <defs>
+                <marker id="arrowhead" viewBox="0 0 10 10" refX="8" refY="5"
+                    markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="black" />
+                </marker>
+            </defs>
+
+            <!-- Diagram Title -->
+            <text x="450" y="30" class="title-label">FIG. 5: Verification Interface Deployment</text>
+
+            <!-- Third-Party Verifier -->
+            <rect x="50" y="210" width="180" height="80" rx="4" class="actor-block"/>
+            <text x="140" y="250" class="label">
+                <tspan x="140" dy="-0.6em">Third-Party</tspan>
+                <tspan x="140" dy="1.2em">Verifier</tspan>
+            </text>
+
+            <!-- Verification System -->
+            <rect x="670" y="150" width="180" height="200" rx="4" class="system-block"/>
+            <text x="760" y="250" class="label">
+                 <tspan x="760" dy="-0.6em">Verification</tspan>
+                 <tspan x="760" dy="1.2em">System</tspan>
+            </text>
+            
+            <!-- Interface Layer -->
+            <g id="interface-layer">
+                <rect x="350" y="150" width="200" height="200" rx="4" class="interface-block"/>
+                <text x="450" y="175" class="label">Interface Layer</text>
+
+                <!-- Secure APIs (510) -->
+                <rect x="375" y="200" width="150" height="50" rx="2" class="endpoint-block"/>
+                <text x="450" y="225" class="label">Secure APIs (510)</text>
+
+                <!-- Smart Contracts (520) -->
+                <rect x="375" y="270" width="150" height="50" rx="2" class="endpoint-block"/>
+                <text x="450" y="295" class="label">Smart Contracts (520)</text>
+            </g>
+
+            <!-- Visual Barrier -->
+            <line x1="550" y1="130" x2="550" y2="370" class="barrier-line" />
+            <text x="595" y="120" class="label" style="font-size: 12px;">No Direct Data Access</text>
+
+
+            <!-- Arrows -->
+            <!-- Request Arrow -->
+            <path d="M 240 230 H 340" class="arrow-line" marker-end="url(#arrowhead)"/>
+            <text x="290" y="220" class="label" style="font-size: 12px;">Request</text>
+
+            <!-- Response Arrow -->
+            <path d="M 340 270 H 240" class="arrow-line" marker-end="url(#arrowhead)"/>
+            <text x="290" y="285" class="label" style="font-size: 12px;">Valid / Invalid</text>
+            
+            <!-- Connection from Interface to System -->
+            <path d="M 560 250 H 660" class="arrow-line" marker-end="url(#arrowhead)"/>
+        </svg>
+    </div>
+</body>
+</html>

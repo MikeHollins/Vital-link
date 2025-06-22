@@ -1,0 +1,102 @@
+PATENT 2: PRIVACY-PRESERVING TOKENIZATION OF HEALTH DATA USING AI-DRIVEN SANITIZATION AND STANDARDIZED ONTOLOGIES
+Title: PRIVACY-PRESERVING TOKENIZATION OF HEALTH DATA USING AI-DRIVEN SANITIZATION AND STANDARDIZED ONTOLOGIES
+
+Inventor: Dr. Michael E Hollins Jr
+Address: 56 Beaver St., Apt. 205, New York, NY 10004 USA
+
+Cross-Reference to Related Applications: None
+
+BACKGROUND OF THE INVENTION
+Field of the Invention
+[0001] The present invention relates generally to the fields of digital data processing and cryptographic asset management. More particularly, the invention pertains to systems and methods that combine machine learning for privacy-preserving data sanitization with blockchain technology for creating verifiable and tradeable digital assets, such as non-fungible tokens (NFTs), within environments governed by regulatory compliance frameworks.
+
+Description of Related Art
+[0002] Current health data monetization systems suffer from privacy violations and regulatory compliance failures. Furthermore, the state of the art includes explorations into related technologies. For instance, academic frameworks like 'RedactOR' by Singh et al. teach methods for de-identifying text using Large Language Models while preserving semantic context. Concurrently, patents like U.S. Pat. No. 11,782,942 to Liang et al. teach methods for linking unstructured clinical notes to structured data resources.
+
+[0003] However, none of these references, alone or in combination, teach the specific, sequential process of the present invention. Specifically, the prior art does not disclose a method wherein the semantically preserved, sanitized text itself is used as the direct input for a programmatic data encoder to create a new layer of structured, ontology-mapped metadata, which is then made verifiable and tradeable via an NFT. This unique step of structuring the privacy-preserved output solves the critical problem of creating a data asset that is simultaneously safe for analysis, structurally queryable, and verifiably compliant.
+
+BRIEF SUMMARY OF THE INVENTION
+[0004] The present invention provides a system and method for generating a privacy-preserving, regulatory-compliant digital health asset by converting a verified health attestation into a tokenized, blockchain-based representation. In one embodiment, a computer-implemented method comprises receiving a digital health attestation, processing it with a machine learning model to redact protected health information (PHI) while preserving semantic context, generating structured metadata by mapping the sanitized data to a healthcare ontology, and minting a non-fungible token (NFT) on a blockchain that embeds an immutable link to the structured metadata. In another embodiment, a system for performing this method is provided, comprising a data ingestion module, an AI-powered pattern recognition engine, a healthcare standards encoder, and a smart contract engine.
+
+BRIEF DESCRIPTION OF THE DRAWINGS
+[0005] FIG. 1: System Architecture is a block diagram illustrating the overall system architecture for generating a compliant health data token.
+[0006] FIG. 2: Data Transformation Flowchart is a flowchart illustrating the core data transformation process for converting a verified health attestation into a compliant non-fungible token (NFT).
+[0007] FIG. 3: Synergistic System Operation is a block diagram illustrating a preferred embodiment of the system in synergistic operation with a dynamic zero-knowledge proof verification system.
+[0008] FIG. 4: NFT Metadata Structure is a diagram illustrating an exemplary data structure for the metadata associated with a compliant health data token.
+
+DETAILED DESCRIPTION OF THE INVENTION
+[0009] The following detailed description is presented to enable any person skilled in the art to make and use the invention. For purposes of explanation, specific nomenclature and embodiments are set forth to provide a thorough understanding. However, it will be apparent to one skilled in the art that these specific details are not required to practice the invention and that the invention is not limited to the specific embodiments described herein. The descriptions of specific embodiments are provided for purpose of illustration and representation, not limitation.
+
+Terminology and Definitions
+[0010] "Digital Health Attestation" refers to a digital record originating from a verifiable source that confirms a specific health-related fact about a subject. Such attestations may include, but are not limited to, digitally signed vaccination records, authenticated lab results from a certified laboratory, data streams from a verified biometric sensor, or a cryptographic proof, such as a zero-knowledge proof, confirming compliance with a set of health parameters.
+
+[0011] "Protected Health Information (PHI)" is defined in accordance with the Health Insurance Portability and Accountability Act (HIPAA) and its associated regulations. It includes any information in a medical record that can be used to identify an individual, and that was created, used, or disclosed in the course of providing a health care service.
+
+[0012] "Healthcare Ontology" refers to a formal, standardized system of names, definitions, and categories that represents the concepts and relationships within the healthcare domain, such as SNOMED CT, LOINC, or ICD-10.
+
+[0013] "Non-Fungible Token (NFT)" refers to a unique cryptographic token residing on a blockchain that represents ownership or authenticity of a unique digital asset. In the context of the present invention, an NFT serves as a verifiable, tradeable digital asset representing a sanitized health attestation and contains an immutable link to its corresponding structured metadata.
+
+[0014] "Attestation Distinctiveness Score (ADS) Module" refers to a computer-implemented module configured to programmatically calculate a numerical score representing the statistical novelty of a given health attestation. The calculation is performed by comparing the ontology-mapped structured metadata of the attestation against a historical database of previously processed attestations.
+
+Description of the Drawings
+[0015] Referring to FIG. 1 (Components 100–150), the system architecture is shown. A Data Ingestion Module (110) receives a verified health attestation. An AI-Powered Pattern Recognition Engine (120) and a Healthcare Standards Encoder (130) process the attestation. A Smart Contract Engine (140) mints a secure NFT. A Verification API (150) allows for authenticity verification.
+
+[0016] It is a critical aspect of the present invention that it solves a long-felt but unsolved need at the intersection of blockchain technology and healthcare regulation. A primary technical barrier preventing the tokenization of health data is the significant legal risk of immutably recording PHI to a public blockchain. The present invention provides a specific, non-obvious architectural solution to this problem. By processing the health attestation through an AI-powered sanitization engine and a healthcare standards encoder prior to any blockchain interaction, and then minting an NFT that contains only an immutable link to the resulting off-chain, sanitized and structured metadata, the system ensures that no PHI is ever placed on the blockchain.
+
+[0017] Referring to FIG. 2 (Components 200–260), the data transformation flowchart begins with a Verified Health Attestation (210), proceeds through AI-Powered PHI Sanitization (220) and Ontology-Based Metadata Encoding (230), generates a Cryptographic Commitment (240), and completes with NFT Minting (250) to create a Compliant Health NFT (260).
+
+[0018] Referring to FIG. 3 (Components 300–330), a Dynamic ZK Verification System (310) generates a Context-Aware ZKP Attestation (320), which is then received as the primary input by the NFTME System (330).
+
+[0019] Referring to FIG. 4 (Components 400–440), the NFT's metadata structure is shown, comprising an attestation_type field (410), a subject_attestation_hash field (420), an immutable_link field (430), and a validation_method field (440).
+
+[0020] In certain embodiments, the Smart Contract Engine (140) is configured with additional logic modules to enhance the functionality of the minted NFT. For instance, a dynamic Attestation Distinctiveness Score (ADS) module may be included, which programmatically calculates an ADS by comparing the NFT's ontology-mapped metadata against a historical database of previously minted attestations to determine statistical novelty. The smart contract may also implement a time-locking mechanism, wherein the NFT is non-transferable until a specific on-chain or off-chain condition is met, verified via an oracle. Furthermore, the system may execute a cryptographic revocation mechanism, wherein a user-initiated data erasure request triggers an update to a public revocation list, thereby allowing verifiers to confirm that the immutable link within the NFT is no longer considered valid.
+
+[0021] The foregoing description of the embodiments of the invention has been presented for the purposes of illustration and description. It is not intended to be exhaustive or to limit the invention to the precise form disclosed. Many modifications and variations are possible in light of the above teaching. It is intended that the scope of the invention be limited not by this detailed description, but rather by the claims appended hereto.
+
+[0022] It is to be understood that the systems and methods described herein may be implemented on one or more computing devices. Such a device will typically include at least one hardware processor and a memory storing instructions, which, when executed, cause the device to perform the steps of the methods described herein.
+
+CLAIMS
+What is claimed is:
+
+A computer-implemented method for generating a regulatory-compliant health data token, comprising: (a) receiving, at a hardware processor, a digital health attestation; (b) processing, by a machine learning model, descriptive text associated with the digital health attestation to identify and redact protected health information (PHI), thereby generating sanitized descriptive data suitable for public verification; (c) generating, by a healthcare standards encoder, structured metadata from the sanitized descriptive data by mapping a health-related fact from the attestation to one or more codes from a healthcare ontology to ensure semantic interoperability; and (d) minting, by a smart contract engine, a non-fungible token (NFT) on a blockchain, said NFT embedding an immutable link to the structured metadata.
+
+The method of claim 1, wherein the digital health attestation is a zero-knowledge proof whose validity constraints were dynamically adjusted based on environmental metadata.
+
+The method of claim 1, wherein the machine learning model comprises classifiers that achieve over 99% accuracy in redacting PHI.
+
+The method of claim 1, wherein the healthcare ontology is at least one of SNOMED CT, LOINC, or ICD-10.
+
+The method of claim 1, wherein the minting includes generating a time-locked NFT.
+
+The method of claim 1, further comprising a dynamic Attestation Distinctiveness Score (ADS) module configured to calculate an ADS for the NFT.
+
+The method of claim 1, further comprising enabling secure transfer of the NFT across multiple blockchain networks via a cross-chain bridge protocol.
+
+The method of claim 1, further comprising executing a cryptographic revocation mechanism in response to a user-initiated data erasure request.
+
+The method of claim 1, wherein the smart contract engine is further configured to automatically execute revenue sharing distributions.
+
+The method of claim 1, wherein the digital health attestation is a zero-knowledge succinct non-interactive argument of knowledge (zk-SNARK).
+
+A system for generating a health data token, comprising: (a) a data ingestion module configured to receive a digital health attestation; (b) an AI-powered pattern recognition engine communicatively coupled to the data ingestion module, the engine comprising a machine learning model configured to process the attestation to identify and redact protected health information (PHI); (c) a healthcare standards encoder communicatively coupled to the engine and configured to generate structured metadata by mapping a health-related fact from the attestation to a healthcare ontology code; and (d) a smart contract engine communicatively coupled to the encoder and configured to mint a non-fungible token (NFT) on a blockchain, said NFT embedding an immutable link to the structured metadata.
+
+The system of claim 11, wherein the digital health attestation is a zero-knowledge proof whose validity constraints were dynamically adjusted based on environmental metadata.
+
+The system of claim 11, wherein the machine learning model comprises classifiers that achieve over 99% accuracy in redacting PHI.
+
+The system of claim 11, wherein the healthcare standards encoder is configured to use at least one of SNOMED CT, LOINC, or ICD-10.
+
+The system of claim 11, wherein the smart contract engine is further configured to generate a time-locked NFT.
+
+The system of claim 11, wherein the smart contract engine further comprises a dynamic Attestation Distinctiveness Score (ADS) module configured to calculate and store an ADS for the NFT.
+
+The system of claim 11, further comprising a cross-chain bridge connector configured to enable secure transfer of the NFT.
+
+The system of claim 11, wherein the smart contract engine is further configured to execute a cryptographic revocation mechanism.
+
+The system of claim 11, wherein the smart contract engine is further configured to automatically execute revenue sharing distributions.
+
+The system of claim 11, further comprising a verification application programming interface (API) configured to receive a zero-knowledge proof and output a validation result.
+
+ABSTRACT
+A method and system for generating a health data token. The process comprises receiving a digital health attestation. A machine learning model processes the attestation to redact protected health information (PHI). A healthcare standards encoder then generates structured metadata by mapping a health-related fact to a healthcare ontology code. Finally, a smart contract engine mints a non-fungible token (NFT) on a blockchain, with the NFT embedding an immutable link to the structured metadata. This process enables the creation of trustworthy, regulatory-compliant digital health assets.

@@ -1,0 +1,23 @@
+{
+  "heartRate": "Heart Rate",
+  "bloodPressure": "Blood Pressure",
+  "temperature": "Temperature",
+  "oxygenSaturation": "Oxygen Saturation",
+  "respiratoryRate": "Respiratory Rate",
+  "steps": "Steps",
+  "distance": "Distance",
+  "calories": "Calories",
+  "activeMinutes": "Active Minutes",
+  "sleepDuration": "Sleep Duration",
+  "sleepQuality": "Sleep Quality",
+  "restingHeartRate": "Resting Heart Rate",
+  "bpm": "BPM",
+  "mmHg": "mmHg",
+  "celsius": "°C",
+  "fahrenheit": "°F",
+  "percent": "%",
+  "hours": "hours",
+  "minutes": "minutes",
+  "kilometers": "km",
+  "miles": "miles"
+}

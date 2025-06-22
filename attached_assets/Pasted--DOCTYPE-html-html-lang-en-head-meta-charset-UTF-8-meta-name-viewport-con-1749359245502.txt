@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Figure 1: System Architecture</title>
+    <style>
+        /* --- Basic Setup --- */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 2em;
+            background-color: #fff;
+        }
+
+        /* --- Main Diagram Container --- */
+        #diagram-container {
+            position: relative; /* Establishes a coordinate system for the absolute-positioned elements inside */
+            width: 1050px;
+            height: 300px;
+            border: 1px solid #ccc; /* Optional: adds a faint border around the canvas area */
+            padding: 10px;
+        }
+
+        /* --- Style for all Modules (Boxes) --- */
+        .module {
+            position: absolute;
+            border: 2px solid black;
+            background-color: white; /* Ensures boxes are opaque and sit on top of arrows */
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10; /* Ensures boxes are layered above the arrows */
+        }
+
+        /* --- Individual Module Positioning --- */
+        #module-110 {
+            top: 50px;
+            left: 20px;
+            width: 160px;
+            height: 50px;
+        }
+
+        #module-120 { /* Larger central module */
+            top: 40px;
+            left: 280px;
+            width: 240px;
+            height: 70px;
+        }
+
+        #module-130 {
+            top: 50px;
+            left: 620px;
+            width: 180px;
+            height: 50px;
+        }
+
+        #module-140 {
+            top: 50px;
+            left: 880px;
+            width: 150px;
+            height: 50px;
+        }
+
+        #module-150 {
+            top: 200px;
+            right: 20px; /* Aligned to the bottom right */
+            width: 150px;
+            height: 50px;
+        }
+        
+        /* --- SVG Canvas for Arrows --- */
+        #arrows-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5; /* Places arrows behind the boxes */
+        }
+        
+        /* --- Arrow Styles --- */
+        .arrow {
+            stroke: black;
+            stroke-width: 2;
+            fill: none;
+            /* Attaches the arrowhead marker to the end of the line */
+            marker-end: url(#arrowhead);
+        }
+
+        .dotted-arrow {
+            stroke-dasharray: 6, 6; /* Creates the dotted/dashed line effect */
+        }
+        
+        /* --- Arrowhead Definition Style --- */
+        #arrowhead polygon {
+            fill: black;
+        }
+    </style>
+</head>
+<body>
+
+    <h3>Figure 1: System Architecture</h3>
+
+    <div id="diagram-container">
+
+        <!-- Module Boxes -->
+        <div class="module" id="module-110">Data Ingestion Module<br>(110)</div>
+        <div class="module" id="module-120">AI-Powered Pattern Recognition Engine<br>(120)</div>
+        <div class="module" id="module-130">Healthcare Standards Encoder<br>(130)</div>
+        <div class="module" id="module-140">Smart Contract Engine<br>(140)</div>
+        <div class="module" id="module-150">Verification API<br>(150)</div>
+
+        <!-- SVG element to draw the connecting arrows -->
+        <svg id="arrows-svg">
+            <defs>
+                <!-- Defines the arrowhead shape that can be reused -->
+                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" />
+                </marker>
+            </defs>
+
+            <!-- Arrow 1: 110 -> 120 -->
+            <line x1="202" y1="85" x2="280" y2="85" class="arrow"></line>
+
+            <!-- Arrow 2: 120 -> 130 -->
+            <line x1="522" y1="85" x2="620" y2="85" class="arrow"></line>
+
+            <!-- Arrow 3: 130 -> 140 -->
+            <line x1="802" y1="85" x2="880" y2="85" class="arrow"></line>
+            
+            <!-- Arrow 4: 150 -> 140 (Dotted) -->
+            <line x1="965" y1="200" x2="965" y2="122" class="arrow dotted-arrow"></line>
+
+        </svg>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+Yes, there are several errors and missing pieces in the provided code. The most significant error is that the MultilingualProvider component does not return any JSX. A React component must return a value that can be rendered, and a context provider should wrap its children with the context.
+Here's a breakdown of the issues:
+ * Missing Return Statement: The MultilingualProvider function defines hooks and logic but never returns anything. It should return a Context Provider component that makes the language state and the switching function available to its children.
+ * Context Not Created or Provided: The code implies a MultilingualContext but never creates one using React.createContext(). You need to create the context outside the component and then use <MyContext.Provider> in the return statement.
+ * queryClient is Not Defined: The onSuccess callback for useMutation uses queryClient, but it's not defined. You should get it by calling the useQueryClient hook from React Query (or your chosen data-fetching library).
+ * switchLanguageMutation is Not Exposed: The switchLanguageMutation is defined, but there's no way for child components to access and trigger it. It should be passed down through the context's value.
+ * Undefined apiRequest: The apiRequest function used within the useMutation is not defined or imported in this snippet. We'll assume it's a utility function you have elsewhere.
+ * Missing Imports: For the code to be valid, you would need to import React, useState, useEffect, and createContext from 'react', and useMutation, useQueryClient from '@tanstack/react-query' (or a similar library).
+Corrected and Complete Code
+Here is a corrected version that addresses these issues:
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+
+// Assume apiRequest is defined elsewhere
+// import { apiRequest } from './api'; 
+
+export const supportedLanguages = [
+  { code: 'en', name: 'English', flag: '🇺🇸' },
+  { code: 'zh', name: '中文', flag: '🇨🇳' },
+  { code: 'ms', name: 'Bahasa Melayu', flag: '🇲🇾' },
+  { code: 'ta', name: 'தமிழ்', flag: '🇮🇳' },
+  { code: 'ru', name: 'Русский', flag: '🇷🇺' },
+  { code: 'de', name: 'Deutsch', flag: '🇩🇪' }
+];
+
+// 1. Create the context
+const MultilingualContext = createContext(null);
+
+export function MultilingualProvider({ children }: { children: React.ReactNode }) {
+  const [currentLanguage, setCurrentLanguage] = useState<string>('en');
+  // 3. Get the queryClient instance
+  const queryClient = useQueryClient();
+  
+  // Intelligent language detection
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('vitallink-language');
+    if (savedLanguage && supportedLanguages.find(lang => lang.code === savedLanguage)) {
+      setCurrentLanguage(savedLanguage);
+    } else {
+      const browserLang = navigator.language.split('-')[0];
+      const supportedLang = supportedLanguages.find(lang => lang.code === browserLang);
+      if (supportedLang) {
+        setCurrentLanguage(supportedLang.code);
+      }
+    }
+  }, []);
+
+  const switchLanguageMutation = useMutation({
+    mutationFn: async ({ targetLanguage, preserveContext = true }) => {
+      const currentContext = preserveContext ? {
+        currentPage: window.location.pathname,
+        timestamp: new Date().toISOString(),
+        userState: 'navigation_context'
+      } : null;
+
+      // Assuming apiRequest is a defined function that makes API calls
+      const response = await apiRequest('POST', '/api/multilingual/switch-language', {
+        targetLanguage,
+        currentContext,
+        preserveState: preserveContext
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to switch language');
+      }
+      return response.json();
+    },
+    onSuccess: (data, variables) => {
+      setCurrentLanguage(variables.targetLanguage);
+      localStorage.setItem('vitallink-language', variables.targetLanguage); // Persist selection
+      queryClient.invalidateQueries({ queryKey: ['multilingual'] });
+    }
+  });
+
+  // 4. Define the value to be provided by the context
+  const value = {
+    currentLanguage,
+    switchLanguage: switchLanguageMutation.mutate, // Expose the mutate function
+    supportedLanguages
+  };
+
+  // 2. Return the Provider component wrapping the children
+  return (
+    <MultilingualContext.Provider value={value}>
+      {children}
+    </MultilingualContext.Provider>
+  );
+}
+
+// Custom hook to easily consume the context
+export function useMultilingual() {
+  const context = useContext(MultilingualContext);
+  if (!context) {
+    throw new Error('useMultilingual must be used within a MultilingualProvider');
+  }
+  return context;
+}
+

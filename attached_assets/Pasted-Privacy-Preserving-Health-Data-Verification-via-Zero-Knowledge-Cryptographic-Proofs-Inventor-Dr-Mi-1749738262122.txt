@@ -1,0 +1,143 @@
+Privacy-Preserving Health Data Verification via Zero-Knowledge Cryptographic Proofs
+Inventor: Dr. Michael E Hollins Jr
+Address: 56 Beaver St., Apt. 205, New York, NY 10004 USA
+Cross-Reference to Related Applications: None
+
+BACKGROUND OF THE INVENTION
+Field of the Invention
+[0001] This invention relates to computer-implemented systems and methods for privacy-preserving verification of health-related data. More particularly, it relates to cryptographic proof systems, including zero-knowledge proofs, that enable verification of biometric data and medical compliance parameters without exposing the underlying raw data, supporting scalable, regulation-compliant third-party validation.
+
+Description of the Related Art
+[0002] Current health data verification systems require transmission and storage of raw biometric data, introducing significant privacy risks and regulatory compliance challenges. Prior systems like US20150066867A1 (Chen et al.) and US20220200975A1 (Kumar et al.), while contributing to privacy-preserving data validation, do not address the specific challenges of health data, such as handling complex physiological constraints or providing for dynamic adjustment of parameters based on environmental factors. Specifically, Chen et al. focuses on static data linking and does not teach a mechanism for dynamically reconfiguring cryptographic circuits based on real-time environmental context for physiological data. Kumar et et al. similarly lacks the granular, context-aware adaptation and the integrated, immutable consent management on a distributed ledger that are central to the present invention's ability to provide verifiable compliance without exposing raw data.
+
+[0003] Health data validation systems in the prior art generally apply static or globally fixed physiological thresholds during evaluation of biometric data. Such systems fail to account for context-sensitive physiological variations driven by environmental factors (e.g., altitude, activity level, circadian rhythm) or jurisdictional constraints. As a result, static systems may incorrectly classify a healthy individual as non-compliant, or conversely, fail to detect a condition due to inappropriate reference ranges. Moreover, these legacy systems do not provide a mechanism to cryptographically bind context-specific validation logic to a zero-knowledge proof in a privacy-preserving and verifiable manner.
+
+BRIEF SUMMARY OF THE INVENTION
+[0004] The present invention provides a system and method for privacy-preserving verification of biometric health data using zero-knowledge cryptographic proofs. Biometric data is collected alongside environmental metadata, which may include geographic location, altitude, activity level, and jurisdictional identifiers. A constraint validation module determines a set of physiological constraints by retrieving rules from a machine-readable database that encodes legal, environmental, and medical standards. These constraints are used to configure a cryptographic circuit, from which a computationally efficient zero-knowledge proof is generated attesting to compliance without revealing underlying biometric values. The system supports local proof generation on mobile and edge devices using lightweight or sparse constraint models. A blockchain anchoring module records a hash of the proof in a tamper-resistant, timestamped transaction. A consent management module records user authorization events to the blockchain, and a smart contract-based verification interface allows authorized third parties to validate the proof by checking both cryptographic integrity and consent validity. The invention further enables conjunctive aggregation of multiple constraint validations into a unified proof and supports quantum-resistant cryptographic primitives. This architecture enables context-sensitive, regulation-aligned, and privacy-preserving third-party validation of health compliance in fields including medical credentialing, wellness screening, military readiness, and insurance claims.
+
+BRIEF DESCRIPTION OF THE DRAWINGS
+[0005] FIG. 1: System Architecture Overview is a block diagram illustrating the overall system architecture for privacy-preserving health data verification, including the integration of a consent management module.
+[0006] FIG. 2: Constraint Validation Pipeline is a logic flow diagram depicting the operation of the constraint validation pipeline for evaluating biometric data against physiological thresholds.
+[0007] FIG. 3: Zero-Knowledge Proof Engine Architecture is a schematic diagram of the internal architecture of the zero-knowledge proof engine, detailing the dynamic configuration of its cryptographic circuit.
+[0008] FIG. 4: Blockchain Anchoring Workflow is a process flow diagram illustrating how zero-knowledge proofs are anchored to a blockchain ledger.
+[0009] FIG. 5: Verification Interface Deployment is a deployment diagram showing the verifier interface framework, including its interaction with the blockchain for consent verification.
+[0010] FIG. 6: Consent and Privacy Lifecycle Management is a flowchart detailing consent lifecycle management, illustrating the flow of consent information to the blockchain and its control over data access.
+[0011] FIG. 7: Edge and Mobile Proof Generation is a deployment architecture diagram illustrating proof generation on edge devices, emphasizing local raw data processing and external transmission of only the zero-knowledge proof.
+
+DETAILED DESCRIPTION OF THE INVENTION
+[0012] The following detailed description is presented to enable any person skilled in the art to make and use the invention. For purposes of explanation, specific nomenclature and embodiments are set forth to provide a thorough understanding. However, it will be apparent to one skilled in the art that these specific details are not required to practice the invention and that the invention is not limited to the specific embodiments described herein. The descriptions of specific embodiments are provided for purpose of illustration and representation, not limitation.
+
+Terminology and Definitions
+[0013] "Zero-knowledge proof" refers to any cryptographic method that enables a first party to prove to a second party that a given statement is true, without conveying any information apart from the fact that the statement is indeed true.
+[0014] "Constraint Validation Module" refers to a computer-implemented module configured to receive biometric data and associated environmental metadata, and, based on said metadata, dynamically determine or select or modify a set of physiological constraint parameters from a data store for use in defining a cryptographic circuit.
+[0015] "Environmental Metadata" refers to supplemental context data associated with a biometric record, including but not limited to: altitude, GPS coordinates, climate data, jurisdictional location, and temporal markers, which can be used to adjust the validation parameters for the biometric data.
+
+[0016] "Machine-readable rules database" refers to a structured data repository, stored in memory and accessible by computer logic, that encodes jurisdiction-specific physiological constraints, legal thresholds, or compliance requirements in a format parsable by software components. The database may comprise tables, key-value mappings, or structured schemas (e.g., JSON, XML, YAML) and may support real-time or near real-time querying, rule updates, and multi-jurisdictional logic branching based on geographic metadata or policy identifiers. It may further include priority schemas for resolving overlapping constraints across legal regimes.
+
+[0017] "Cryptographic Circuit" refers to an arithmetic or boolean circuit representing a computational validation problem, used to generate a zero-knowledge proof. The circuit may include logical gates, threshold comparators, range checks, or temporal validators. The circuit is dynamically reconfigurable in response to environmental metadata and legal constraints retrieved from a machine-readable rules database.
+
+[0018] The present invention overcomes the deficiencies outlined in the prior art section by introducing a dynamic constraint validation mechanism that adjusts physiological thresholds based on environmental metadata such as altitude, location, time zone, or detected activity level. This adaptive constraint logic is used to configure the cryptographic circuit employed by the zero-knowledge proof engine, ensuring that the proof reflects contextually appropriate health criteria without exposing underlying data. When combined with blockchain-based consent anchoring and smart contract-based validation, the system enables a scalable, privacy-preserving compliance verification architecture capable of reflecting both medical accuracy and user autonomy.
+
+[0019] Referring to FIG. 1, the system (100) comprises a data intake module (110), an environmental metadata module (120), a constraint validation module (130), a ZK proof engine (140), a blockchain anchoring module (150), a consent management module (160), and a verification interface (170). The validation module (130) uses metadata from module (120) to modify constraint parameters for the proof engine (140).
+
+[0020] The term “computationally efficient” or “lightweight” as used herein, particularly with reference to the zero-knowledge proof engine (140), refers to its capability to operate with a reduced computational footprint (e.g., less than 500MB RAM, sub-500ms proof generation time for typical biometric data inputs) and optimized energy consumption compared to general-purpose ZKP implementations, thereby enabling efficient execution on resource-constrained platforms such as edge devices and mobile devices (e.g., as illustrated in FIG. 7). This configuration also contributes to data minimization and attack surface reduction, since proof generation occurs entirely within the local device and no raw biometric data is transmitted externally.
+
+[0021] The constraint validation module (130) is configured to dynamically determine the set of physiological constraint parameters. This determination may involve a rules-based engine, a decision tree, or a lookup table indexed by the received environmental metadata. For example, if the environmental metadata indicates the user is at a high altitude, the module may automatically select a lower acceptable oxygen saturation threshold for validation. This dynamic adaptation ensures that the verification process accurately reflects real-world physiological conditions, reducing false positives or negatives that would occur with static constraints. This mechanism directly addresses the limitations of prior art that failed to provide dynamic adaptation to physiological constraints based on environmental factors.
+
+[0022] Referring to FIG. 2, the constraint validation pipeline (200) for a military readiness use case evaluates biometric data against physiological (210), chronological (220), and environmental (240) thresholds, and may invoke a circadian rhythm validator (230).
+
+[0023] Referring to FIG. 3, the ZK proof engine (300) for an insurance use case processes public inputs (310) and encrypted private inputs (320) using a selected cryptographic scheme (330) to generate a proof of compliance. The cryptographic circuit utilized by the ZK proof engine (300) is dynamically configured based on the determined set of physiological constraint parameters. This configuration means that the circuit's underlying logical gates, inequalities, or thresholds are adjusted in real-time to match the specific physiological boundaries dictated by the environmental context or other dynamic criteria. For instance, if a constraint parameter specifies a maximum heart rate of 120 bpm under normal conditions but 150 bpm during strenuous exercise (as indicated by activity metadata), the circuit's verification logic is updated accordingly before proof generation.
+
+[0024] Referring to FIG. 4, the blockchain anchoring process (400) is detailed for a credentialing use case. The process involves computing a hash of the zero-knowledge proof using a collision-resistant hashing algorithm, such as SHA-256. The timestamping module (410) then records this hash to the blockchain ledger within a timestamped transaction. The immutability enforcement module (420) ensures the integrity of this record, while the version control mechanism (430) tracks updates, and the consent record integration module (440) links the proof to user authorization. In cases where off-chain biometric data is subsequently corrected or updated, a new zero-knowledge proof reflecting the corrected data can be generated and anchored to the blockchain, with a cryptographic reference to the previously valid, but now superseded, proof hash, thereby maintaining an auditable trail of data integrity while allowing for necessary corrections.
+
+[0025] Referring to FIG. 5, the verification interface (500) for a corporate wellness program enables a verifier to use a secure API (510) or a smart contract (520) to validate a proof. As used herein, the phrase “validate the proof” refers to the process of confirming (i) that the zero-knowledge proof is mathematically correct according to the cryptographic validity of the proof against an associated constraint hash, and (ii) that user consent associated with the data type or verification context is present and unexpired on the blockchain ledger. This validation may be implemented using smart contracts (520) that enforce proof verification logic and consent matching in a deterministic, tamper-resistant manner. The smart contract may further include automated expiration or revocation triggers based on pre-defined durations or event conditions, and may be designed with gas-optimization for execution efficiency.
+
+[0026] Referring to FIG. 6, the consent lifecycle management module (600) for a public health research use case includes consent grant/revocation logic (610) and jurisdictional constraint enforcement (620). This module (600) is communicatively coupled to the blockchain anchoring module (150). Upon a user's grant or revocation of consent, a timestamped transaction detailing the consent event (e.g., data type, recipient, duration, purpose, digital signature) is submitted to the blockchain ledger, establishing an immutable and auditable record of authorization. This record directly governs access permissions provisioned by the verification interface (170), ensuring patient autonomy and regulatory compliance (e.g., HIPAA).
+
+[0027] Referring to FIG. 7, the edge deployment architecture (700) for a military scenario shows a wearable sensor (710) and mobile device (720) with a computationally efficient ZK proof engine (730) performing local proof generation, with deferred blockchain anchoring (760, 770).
+
+[0028] The ZK proof engine (140) may be configured to utilize quantum-resistant cryptography, such as lattice-based cryptography (e.g., CRYSTALS-Dilithium, CRYSTALS-Kyber) or hash-based signatures (e.g., XMSS, LMS) for generating the zero-knowledge proofs. This is implemented by selecting and integrating specific quantum-resistant cryptographic primitives within the cryptographic scheme (330) used for circuit construction and proof generation, thereby providing enhanced long-term security against future computing threats. For example, when using CRYSTALS-Kyber, the system may incorporate a post-quantum key exchange step between the proof generation module and the verifier interface.
+
+[0029] The ZK proof engine (140) may also be configured to accept multiple independently generated zero-knowledge proofs as input, and combine them into a single aggregated proof. This aggregation is conjunctive, meaning that the resulting proof is valid only if each constituent sub-proof meets its respective constraint. The engine performs this by merging the individual constraint-satisfaction attestations into a single cryptographic statement that preserves the integrity and privacy of the source data while reducing verification cost. This supports complex, multi-metric health evaluations while maintaining cryptographic efficiency.
+
+[0030] The "sparse constraint model" referenced in claims refers to an optimization technique where the cryptographic circuit is designed to minimize the number of constraints, or algebraic equations, required to represent the computation. This is achieved through techniques such as efficient circuit construction, leveraging specific properties of ZKP protocols (e.g., zk-STARKs' inherent scalability for large computations), or by optimizing the representation of complex physiological logic into a more compact circuit. This sparsification reduces the computational overhead and proof size, further contributing to the 'lightweight' nature of the ZK proof engine and enabling its execution on resource-constrained edge devices.
+
+[0031] As used herein, a “valid aggregated proof” refers to a single zero-knowledge proof that encodes the successful satisfaction of multiple, independently derived physiological constraint checks, such that the proof affirms that all conditions were satisfied. The aggregation is conjunctive, meaning that the final proof is valid only if each constituent sub-proof (e.g., for heart rate, oxygen saturation, and circadian validation) individually meets its respective criteria and is merged into a unified proof artifact without revealing the underlying biometric values.
+
+[0032] The foregoing description of the embodiments of the invention has been presented for the purposes of illustration and description. It is not intended to be exhaustive or to limit the invention to the precise form disclosed. Many modifications and variations are possible in light of the above teaching. It is intended that the scope of the invention be limited not by this detailed description, but rather by the claims appended hereto.
+[0033] It is to be understood that the systems and methods described herein may be implemented on one or more computing devices. Such a device will typically include at least one hardware processor and a memory storing instructions, which, when executed, cause the device to perform the steps of the methods described herein.
+
+CLAIMS
+What is claimed is:
+
+A computer-implemented method for privacy-preserving verification of health data, comprising:
+
+(a) receiving, at a hardware processor, biometric data from a sensor and environmental metadata associated with the biometric data;
+
+(b) determining, by the hardware processor, a set of physiological constraint parameters based on the environmental metadata and querying a machine-readable rules database that encodes jurisdiction-specific compliance logic and constraint thresholds;
+
+(c) configuring, by the hardware processor, a cryptographic circuit using the determined constraint parameters, wherein the circuit is dynamically reconfigurable in response to said environmental metadata and legal jurisdictional logic;
+
+(d) generating, by the hardware processor, a zero-knowledge proof that attests to compliance of the biometric data with the configured cryptographic circuit, without revealing the biometric data;
+
+(e) generating a hash of the zero-knowledge proof using a collision-resistant hashing algorithm and recording the hash to a blockchain ledger as a timestamped transaction;
+
+(f) providing access to the recorded hash through a verification interface, the access being limited to authorized third parties; and
+
+(g) recording, on the blockchain ledger, user consent events that govern access to the proof, wherein each consent event includes data type, recipient, scope, and validity period.
+
+The method of claim 1, wherein the environmental metadata comprises at least one of altitude, climate, or geographic location.
+
+The method of claim 2, wherein the environmental metadata is an altitude measurement, the biometric data is an oxygen saturation measurement, and the set of physiological constraint parameters defines an acceptable oxygen saturation range that is lower at a higher altitude than at a lower altitude. Furthermore, wherein the environmental metadata is a detected activity level and the biometric data is a heart rate measurement, and the set of physiological constraint parameters defines an acceptable heart rate range that is higher during periods of increased activity.
+
+The method of claim 1, wherein the zero-knowledge proof is generated using a sparse constraint model to reduce computational overhead.
+
+The method of claim 1, further comprising performing circadian rhythm validation by:
+(a) retrieving a chronotype classification for the user from a time-series biometric profile;
+(b) determining a localized circadian window based on the user’s geographic time zone and chronotype; and
+(c) evaluating the biometric data against circadian-adjusted thresholds specific to the localized window to determine compliance.
+
+The method of claim 1, wherein the proof includes embedded temporal metadata and sequencing logic that enforces chronological integrity and prevents replay or re-use of stale proofs.
+
+The method of claim 1, wherein the zero-knowledge proof is generated using quantum-resistant cryptography.
+
+The method of claim 1, wherein the recording of user consent events in step (g) utilizes smart contracts to automate consent grant and revocation based on predefined rules and user preferences.
+
+The method of claim 1, wherein the verification interface comprises a smart contract configured to validate the zero-knowledge proof by checking the cryptographic validity of the proof against an associated constraint hash, and verifying that a matching user consent record is present on the blockchain.
+
+A system for privacy-preserving verification of biometric data, comprising:
+(a) a data intake module configured to receive biometric input from a sensor and environmental metadata associated with the biometric input;
+(b) a constraint validation module communicatively coupled to the data intake module and configured to determine a set of physiological constraint parameters based on the environmental metadata, wherein the constraint parameters define logical conditions, thresholds, or comparison operations;
+(c) a zero-knowledge proof engine communicatively coupled to the constraint validation module and configured to generate a zero-knowledge proof that attests to compliance of the biometric input with the configured cryptographic circuit, without revealing the biometric input;
+(d) a blockchain anchoring module configured to generate a hash of the zero-knowledge proof using a collision-resistant hashing algorithm and record the hash to a blockchain ledger as a timestamped transaction;
+(e) a verification interface configured to provide access to the recorded hash, the access being limited to authorized third parties; and
+(f) a consent management module communicatively coupled to the blockchain anchoring module and the verification interface, the consent management module configured to record, on the blockchain ledger, user consent events that govern access to the zero-knowledge proof, wherein each consent event includes data type, recipient, scope, and validity period.
+
+The system of claim 10, wherein the environmental metadata comprises at least one of altitude, climate, or geographic location.
+
+The system of claim 11, wherein the environmental metadata is an altitude measurement, the biometric data is an oxygen saturation measurement, and the set of physiological constraint parameters defines an acceptable oxygen saturation range that is lower at a higher altitude than at a lower altitude. Furthermore, wherein the environmental metadata is a detected activity level and the biometric data is a heart rate measurement, and the set of physiological constraint parameters defines an acceptable heart rate range that is higher during periods of increased activity.
+
+The system of claim 10, wherein the constraint validation module further comprises a circadian rhythm analysis module configured to validate the biometric data based on biometric time series data.
+
+The system of claim 10, wherein the operation of the system results in data minimization by generating the zero-knowledge proof entirely on the edge device or mobile platform, such that no raw biometric data is transmitted externally, and only the resulting zero-knowledge proof is sent to external systems for verification or anchoring.
+
+The system of claim 10, wherein the zero-knowledge proof engine operates within a trusted execution environment.
+
+The system of claim 10, further comprising a privacy and consent management framework that implements timestamped authorization capture and audit trail generation.
+
+The system of claim 10, wherein the zero-knowledge proof engine is configured for execution on resource-constrained platforms by utilizing a sparse constraint model.
+
+The system of claim 10, wherein the blockchain anchoring module maintains an immutable audit trail with version tracking of proof submissions.
+
+The system of claim 10, wherein the zero-knowledge proof engine is further configured to receive multiple zero-knowledge proofs as inputs and generate a single, cryptographically sound aggregated proof that attests simultaneously to multiple independent constraint validations, wherein the aggregation is conjunctive and preserves the individual constraint satisfaction checks.
+
+The system of claim 10, wherein the constraint validation module is configured to:
+(a) identify jurisdictional boundaries using geographic metadata associated with the biometric data;
+(b) retrieve from a machine-readable rules database a set of jurisdiction-specific physiological constraints, including regulatory thresholds, compliance criteria, or consent requirements; and
+(c) configure the cryptographic circuit with said constraints prior to zero-knowledge proof generation, such that the proof reflects compliance with the legal standards of the identified jurisdiction.
+
+
+
+ABSRACT
+
+A system and method for privacy-preserving verification of health data includes a data intake module that receives biometric input and environmental metadata. A constraint validation module dynamically determines physiological constraint parameters from a machine-readable rules database based on the environmental metadata, including location and jurisdictional policy identifiers. A computationally efficient zero-knowledge proof engine generates a cryptographic proof using a dynamically configured cryptographic circuit, attesting to compliance with said parameters without revealing the underlying data. The system supports conjunctive aggregation of multiple constraint validations into a single proof. A blockchain anchoring module records a hash of the proof, and a smart contract-enabled consent management module records user authorization events to the blockchain. These consent records control access through a verification interface that enables authorized third parties to validate the cryptographic proof and confirm both physiological and jurisdictional compliance in a secure, auditable manner, including resource-constrained edge deployments.

@@ -1,0 +1,11 @@
+{
+  "welcomeMessage": "欢迎使用您的健康仪表板",
+  "healthOverview": "您的综合健康概览",
+  "quickConnect": "快速连接",
+  "connectedDevices": "已连接设备",
+  "healthMetrics": "健康指标",
+  "dailySteps": "每日步数",
+  "weeklyProgress": "周进度",
+  "dailyGoals": "每日目标",
+  "connectPlatformsDescription": "连接新的健康平台以集中您的数据"
+}

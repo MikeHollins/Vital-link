@@ -1,0 +1,51 @@
+: Final Patent Formatting and Compliance
+
+You are to act as a technical editor performing a final formatting and compliance check on a provided U.S. non-provisional patent application. Your task is to correct specific formatting and numbering errors to ensure the document is perfectly compliant with USPTO standards for filing.
+
+the document you are editing is sani engine patentmd in sani engine patent folder. 
+
+Required Corrections:
+
+1. Correct Section Heading Formatting:
+
+
+
+Where: Throughout the entire document.
+
+What to Fix: The provided text runs all sections together. Insert the standard, capitalized, and centered headings for each major section.
+
+Why: Formal headings are required by the USPTO for clarity and proper document structure. The required headings, in order, are:BACKGROUND OF THE INVENTION (with sub-headings Field of the Invention and Description of Related Art)
+
+BRIEF SUMMARY OF THE INVENTION
+
+BRIEF DESCRIPTION OF THE DRAWINGS
+
+DETAILED DESCRIPTION OF THE INVENTION (with a sub-heading Terminology and Definitions)
+
+CLAIMS
+
+ABSTRACT
+
+2. Correct Specification Paragraph Numbering:
+
+
+
+Where: At the end of the Detailed Description of the Invention section.
+
+What to Fix: The paragraph numbering in the provided text is not perfectly consecutive. Find the last paragraph describing FIG. 4 ([0026]) and ensure the two boilerplate paragraphs that follow it are correctly and sequentially numbered as [0027] and [0028].
+
+Why: USPTO regulations (37 CFR § 1.52) require that paragraph numbering be continuous throughout the specification.
+
+3. Remove Paragraph Numbers from Claims:
+
+
+
+Where: The CLAIMS section.
+
+What to Fix: Remove all bracketed, four-digit paragraph numbers from the line "What is claimed is:" and from every numbered claim (1-20).
+
+Why: The claims have their own independent numbering system (1, 2, 3, etc.) and must not contain the specification's paragraph numbers. This is a critical formatting requirement.
+
+Final Output:
+
+Please provide the complete, fully corrected text of the patent application as the final output, with all formatting and numbering issues resolved.

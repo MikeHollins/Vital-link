@@ -1,0 +1,91 @@
+Yes, there are a few issues in this LanguageSelector component code, ranging from a clear error to potential logical problems.
+1. Undefined Variable Error (Clear Bug)
+The most significant error is the use of an undefined variable currentLang.
+ * You destructure the language state like this: const { language: currentLanguage, setLanguage } = useLanguage();
+ * This renames the language property from your context to a local constant named currentLanguage.
+ * However, in your JSX, you try to access currentLang.name:
+   <span className="hidden md:inline">{currentLang.name}</span> 
+
+This will cause a runtime error because currentLang is not defined. You should be using currentLanguage.
+2. Inconsistent Data Type for currentLanguage (Logical Issue)
+There's a logical contradiction in how you're using the currentLanguage variable, which suggests a deeper issue with your useLanguage hook.
+ * Sometimes it's treated as a string: In your mapping logic, you perform a check like currentLanguage === language.code. This implies that currentLanguage is a string (e.g., 'en').
+ * Sometimes it's treated as an object: In the line with the error, {currentLang.name}, you intended to access a .name property, which implies currentLanguage should be an object (e.g., { code: 'en', name: 'English', flag: '🇺🇸' }).
+The custom hook useLanguage should ideally return the full language object to avoid this ambiguity. If it only returns the code, you would have to find the full language object from the supportedLanguages array every time you need its name or flag.
+3. Unsafe Type Assertion
+In the handleLanguageChange function, you have:
+setLanguage(languageCode as Language);
+
+You are casting a string (languageCode) to a type Language. This is not safe and bypasses TypeScript's type-checking. If your setLanguage function actually expects a full Language object, you should find the object first instead of just casting the code.
+Corrected and Improved Code
+Here is a revised version of the component that fixes these issues. This version assumes the useLanguage hook provides the current language code and demonstrates a more robust way to handle the state.
+// Assume these are imported from your UI library (e.g., shadcn/ui)
+import { Button } from "./components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "./components/ui/dropdown-menu";
+import { Globe } from "lucide-react";
+
+// Assume these are defined and imported
+import { useLanguage } from "./hooks/useLanguage"; // Your custom hook
+import { useToast } from "./hooks/useToast";       // Your custom hook
+import { supportedLanguages } from "./config";    // Your languages array
+
+const LanguageSelector: React.FC = () => {
+  // Let's assume useLanguage returns the language CODE string
+  const { language: currentLanguageCode, setLanguage } = useLanguage();
+  const { toast } = useToast();
+
+  // Find the full language object based on the current code for display
+  // This resolves the object vs. string inconsistency
+  const currentLanguageObject = supportedLanguages.find(
+    (lang) => lang.code === currentLanguageCode
+  );
+
+  const handleLanguageChange = (newLanguageCode: string) => {
+    // 1. Call the setter from your context with the language code
+    setLanguage(newLanguageCode);
+    
+    // 2. Find the newly selected language object to show in the toast
+    const selectedLang = supportedLanguages.find(lang => lang.code === newLanguageCode);
+    
+    toast({
+      title: "Language Changed",
+      description: `Interface has been set to ${selectedLang?.name || 'the selected language'}!`,
+      duration: 3000,
+    });
+  };
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="ghost" size="sm" className="gap-2">
+          <Globe className="h-4 w-4" />
+          {/* FIX: Use the derived language object */}
+          <span className="hidden md:inline">{currentLanguageObject?.name}</span>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end">
+        {supportedLanguages.map((language) => (
+          <DropdownMenuItem
+            key={language.code}
+            onClick={() => handleLanguageChange(language.code)}
+            // FIX: Compare codes for active state
+            className={currentLanguageCode === language.code ? 'bg-muted' : ''}
+          >
+            <span className="mr-2">{language.flag}</span>
+            {language.name}
+            {/* FIX: Compare codes for checkmark */}
+            {currentLanguageCode === language.code && (
+              <span className="ml-auto">✓</span>
+            )}
+          </DropdownMenuItem>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+};
+

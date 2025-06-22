@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#000"/>
+    </marker>
+  </defs>
+  
+  <!-- White background -->
+  <rect width="1200" height="800" fill="#FFFFFF"/>
+  
+  <!-- Title -->
+  <text x="600" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000">
+    Figure 2: Zero-Knowledge Proof Circuit for Health Verification
+  </text>
+  
+  <!-- Private Inputs Section -->
+  <rect x="50" y="80" width="250" height="300" fill="#FFFFFF" stroke="#000" stroke-width="3" rx="8"/>
+  <text x="175" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000">
+    Private Inputs (Witness)
+  </text>
+  
+  <rect x="70" y="130" width="210" height="40" fill="#FFFFFF" stroke="#000" stroke-width="2" rx="5"/>
+  <text x="175" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#000">
+    Health Data Values
+  </text>
+  <text x="175" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#000">
+    steps, heart_rate, sleep_hours
+  </text>
+  
+  <rect x="70" y="185" width="210" height="40" fill="#FFFFFF" stroke="#000" stroke-width="2" rx="5"/>
+  <text x="175" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#000">
+    User Identity
+  </text>
+  <text x="175" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#000">
+    user_id, timestamp
+  </text>
+  
+  <rect x="70" y="240" width="210" height="40" fill="#FFFFFF" stroke="#000" stroke-width="2" rx="5"/>
+  <text x="175" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#000">
+    Health Criteria Thresholds
+  </text>
+  <text x="175" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#000">
+    min_steps, target_sleep
+  </text>
+  
+  <rect x="70" y="295" width="210" height="40" fill="#FFFFFF" stroke="#000" stroke-width="2" rx="5"/>
+  <text x="175" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#000">
+    Randomness (Salt)
+  </text>
+  <text x="175" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#000">
+    r1, r2, nonce
+  </text>
+  
+  <!-- Circuit Logic Section -->
+  <rect x="400" y="80" width="350" height="500" fill="#FFFFFF" stroke="#000" stroke-width="3" rx="8"/>
+  <text x="575" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000">
+    R1CS Circuit Constraints
+  </text>
+  
+  <!-- Constraint 1 -->
+  <rect x="420" y="130" width="310" height="60" fill="#F8F8F8" stroke="#000" stroke-width="2" rx="5"/>
+  <text x="575" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#000">
+    Constraint 1: Range Validation
+  </text>
+  <text x="575" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#000">
+    Verify: 0 ≤ steps ≤ 100,000
+  </text>
+  <text x="575" y="178" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#000">
+    steps * (100000 - steps) ≥ 0
+  </text>
+  
+  <!-- Constraint 2 -->
+  <rect x="420" y="210" width="310" height="60" fill="#F8F8F8" stroke="#000" stroke-width="2" rx="5"/>
+  <text x="575" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#000">
+    Constraint 2: Achievement Check
+  </text>
+  <text x="575" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#000">
+    Verify: steps ≥ min_steps
+  </text>
+  <text x="575" y="258" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#000">
+    (steps - min_steps) * achievement_flag = 0
+  </text>
+  
+  <!-- Constraint 3 -->
+  <rect x="420" y="290" width="310" height="60" fill="#F8F8F8" stroke="#000" stroke-width="2" rx="5"/>
+  <text x="575" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#000">
+    Constraint 3: Hash Commitment
+  </text>
+  <text x="575" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#000">
+    Verify: commitment = hash(data + salt)
+  </text>
+  <text x="575" y="338" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#000">
+    H(steps || user_id || r1) = commitment
+  </text>
+  
+  <!-- Constraint 4 -->
+  <rect x="420" y="370" width="310" height="60" fill="#F8F8F8" stroke="#000" stroke-width="2" rx="5"/>
+  <text x="575" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#000">
+    Constraint 4: Time Validity
+  </text>
+  <text x="575" y="405" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#000">
+    Verify: timestamp within valid range
+  </text>
+  <text x="575" y="418" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#000">
+    (timestamp - start_time) * validity = 0
+  </text>
+  
+  <!-- Constraint 5 -->
+  <rect x="420" y="450" width="310" height="60" fill="#F8F8F8" stroke="#000" stroke-width="2" rx="5"/>
+  <text x="575" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#000">
+    Constraint 5: Merkle Path
+  </text>
+  <text x="575" y="485" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#000">
+    Verify: data belongs to authenticated source
+  </text>
+  <text x="575" y="498" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#000">
+    merkle_root = hash_path(leaf, auth_path)
+  </text>
+  
+  <!-- Public Outputs Section -->
+  <rect x="850" y="80" width="250" height="300" fill="#FFFFFF" stroke="#000" stroke-width="3" rx="8"/>
+  <text x="975" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000">
+    Public Outputs
+  </text>
+  
+  <rect x="870" y="130" width="210" height="40" fill="#FFFFFF" stroke="#000" stroke-width="2" rx="5"/>
+  <text x="975" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#000">
+    Achievement Status
+  </text>
+  <text x="975" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#000">
+    boolean: goal_achieved
+  </text>
+  
+  <rect x="870" y="185" width="210" height="40" fill="#FFFFFF" stroke="#000" stroke-width="2" rx="5"/>
+  <text x="975" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#000">
+    Commitment Hash
+  </text>
+  <text x="975" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#000">
+    H(private_data + salt)
+  </text>
+  
+  <rect x="870" y="240" width="210" height="40" fill="#FFFFFF" stroke="#000" stroke-width="2" rx="5"/>
+  <text x="975" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#000">
+    Verification Timestamp
+  </text>
+  <text x="975" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#000">
+    unix_timestamp
+  </text>
+  
+  <rect x="870" y="295" width="210" height="40" fill="#FFFFFF" stroke="#000" stroke-width="2" rx="5"/>
+  <text x="975" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#000">
+    Nullifier Hash
+  </text>
+  <text x="975" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#000">
+    prevents double-spending
+  </text>
+  
+  <!-- Flow Arrows -->
+  <line x1="300" y1="230" x2="390" y2="230" stroke="#000" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="345" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#000">Witness</text>
+  
+  <line x1="750" y1="320" x2="840" y2="230" stroke="#000" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="795" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#000">Proof</text>
+  
+  <!-- Mathematical Properties -->
+  <rect x="200" y="620" width="800" height="120" fill="#F8F8F8" stroke="#000" stroke-width="2" rx="8"/>
+  <text x="600" y="645" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000">
+    Zero-Knowledge Properties Guaranteed
+  </text>
+  
+  <text x="220" y="670" font-family="Arial, sans-serif" font-size="11" fill="#000">
+    • <tspan font-weight="bold">Completeness:</tspan> Valid health achievements always generate accepting proofs
+  </text>
+  <text x="220" y="685" font-family="Arial, sans-serif" font-size="11" fill="#000">
+    • <tspan font-weight="bold">Soundness:</tspan> Invalid claims cannot generate accepting proofs
+  </text>
+  <text x="220" y="700" font-family="Arial, sans-serif" font-size="11" fill="#000">
+    • <tspan font-weight="bold">Zero-Knowledge:</tspan> Proof reveals no information about private health data
+  </text>
+  <text x="220" y="715" font-family="Arial, sans-serif" font-size="11" fill="#000">
+    • <tspan font-weight="bold">Succinctness:</tspan> Constant-size proof regardless of computation complexity
+  </text>
+  
+  <!-- Reference Footer -->
+  <text x="50" y="780" font-family="Arial, sans-serif" font-size="10" fill="#000">
+    Circuit Elements: Private Inputs → R1CS Constraints → Public Outputs → zk-SNARK Proof
+  </text>
+</svg>

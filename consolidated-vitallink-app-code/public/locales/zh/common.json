@@ -1,0 +1,14 @@
+{
+  "dashboard": "仪表板",
+  "health": "健康",
+  "privacy": "隐私",
+  "settings": "设置",
+  "devices": "设备",
+  "insights": "洞察",
+  "connect": "连接",
+  "connected": "已连接",
+  "syncing": "同步中",
+  "loading": "加载中",
+  "today": "今天",
+  "thisWeek": "本周"
+}

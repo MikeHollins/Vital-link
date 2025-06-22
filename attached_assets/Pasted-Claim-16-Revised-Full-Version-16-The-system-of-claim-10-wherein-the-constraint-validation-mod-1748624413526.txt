@@ -1,0 +1,42 @@
+Claim 16 (Revised – Full Version)
+
+16. The system of claim 10, wherein the constraint validation module is configured to dynamically adjust constraint parameters based on:
+
+(i) user-specific demographic and clinical data, including but not limited to:
+	•	age,
+	•	sex,
+	•	chronic medical conditions (e.g., hypertension, diabetes),
+	•	medication interactions (e.g., beta-blockers, stimulants), and
+	•	personalized biometric trends derived from longitudinal health data;
+
+(ii) temporal and environmental metadata, including:
+	•	circadian phase shifts based on time zone or sleep-wake history,
+	•	high-altitude compensation thresholds (e.g., adjusted oxygen saturation limits),
+	•	local air quality index (AQI),
+	•	relative humidity,
+	•	and ambient temperature; and
+
+(iii) learned biometric patterns identified from prior sensor data using machine learning models trained on time-series biometric sequences, said models configured to infer anomaly boundaries and suggest adaptive constraint reparameterization;
+
+The system further comprises:
+
+(a) a jurisdiction-aware compliance engine configured to determine applicable privacy and health regulation frameworks using:
+	•	GPS coordinates,
+	•	IP address lookup,
+	•	Wi-Fi SSID fingerprinting,
+	•	or explicit user preference declarations;
+
+(b) a policy selector configured to retrieve and apply compliance profiles aligned with jurisdictional rules, including but not limited to:
+	•	HIPAA (United States),
+	•	GDPR (European Union),
+	•	PDPA (Singapore),
+	•	and PIPEDA (Canada);
+
+(c) an audit subsystem configured to cryptographically log:
+	•	all constraint evaluation and proof-generation activities,
+	•	timestamped user consent events,
+	•	and proof identifiers in a tamper-evident format; and
+
+(d) a consent manager interface configured to:
+	•	capture, verify, and revoke user consent for data processing in real-time,
+	•	and enforce data erasure policies aligned with GDPR Article 17 and HIPAA right-of-access provisions, including secure deletion from local, cloud, or third-party systems upon request.

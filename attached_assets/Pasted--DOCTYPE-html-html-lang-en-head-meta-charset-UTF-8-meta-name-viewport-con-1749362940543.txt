@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIG. 2: Data Transformation Flowchart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+        }
+        .process-block {
+            fill: white;
+            stroke: black;
+            stroke-width: 1; /* Thin lines */
+        }
+        .start-end-block {
+            fill: white;
+            stroke: black;
+            stroke-width: 1;
+        }
+        .label {
+            font-size: 14px;
+            font-weight: 400; /* Simple font weight */
+            text-anchor: middle;
+            dominant-baseline: central;
+            pointer-events: none;
+            fill: black;
+        }
+        .title-label {
+            font-size: 16px;
+            font-weight: 600;
+            text-anchor: middle;
+            fill: black;
+        }
+        .arrow-line {
+            stroke: black;
+            stroke-width: 1; /* Thin lines */
+            fill: none;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+    <div class="p-6 sm:p-8 rounded-lg w-full max-w-lg">
+        <svg id="data-flowchart-diagram" viewBox="0 0 400 900" preserveAspectRatio="xMidYMid meet" class="w-full h-full" aria-labelledby="diagramTitle">
+            <title id="diagramTitle">FIG. 2: Data Transformation Flowchart</title>
+            
+            <!-- Define arrowhead marker -->
+            <defs>
+                <marker id="arrowhead" viewBox="0 0 10 10" refX="8" refY="5"
+                    markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="black" />
+                </marker>
+            </defs>
+
+            <!-- Diagram Title -->
+            <text x="200" y="30" class="title-label">FIG. 2</text>
+
+            <!-- Start Block (210) -->
+            <rect x="75" y="80" width="250" height="60" rx="30" class="start-end-block"/>
+            <text x="200" y="110" class="label">Verified Health Attestation (210)</text>
+
+            <!-- Arrow -->
+            <path d="M 200 140 V 170" class="arrow-line" marker-end="url(#arrowhead)"/>
+            
+            <!-- Process Block (220) -->
+            <rect x="75" y="180" width="250" height="80" rx="2" class="process-block"/>
+            <text x="200" y="220" class="label">
+                <tspan x="200" dy="-0.6em">AI-Powered</tspan>
+                <tspan x="200" dy="1.2em">PHI Sanitization (220)</tspan>
+            </text>
+
+            <!-- Arrow -->
+            <path d="M 200 260 V 290" class="arrow-line" marker-end="url(#arrowhead)"/>
+
+            <!-- Process Block (230) -->
+            <rect x="75" y="300" width="250" height="80" rx="2" class="process-block"/>
+            <text x="200" y="340" class="label">
+                <tspan x="200" dy="-0.6em">Ontology-Based</tspan>
+                <tspan x="200" dy="1.2em">Metadata Encoding (230)</tspan>
+            </text>
+
+            <!-- Arrow -->
+            <path d="M 200 380 V 410" class="arrow-line" marker-end="url(#arrowhead)"/>
+            
+            <!-- Process Block (240) -->
+            <rect x="75" y="420" width="250" height="80" rx="2" class="process-block"/>
+            <text x="200" y="460" class="label">Cryptographic Commitment (240)</text>
+
+            <!-- Arrow -->
+            <path d="M 200 500 V 530" class="arrow-line" marker-end="url(#arrowhead)"/>
+
+            <!-- Process Block (250) -->
+            <rect x="75" y="540" width="250" height="80" rx="2" class="process-block"/>
+            <text x="200" y="580" class="label">NFT Minting (250)</text>
+
+            <!-- Arrow -->
+            <path d="M 200 620 V 650" class="arrow-line" marker-end="url(#arrowhead)"/>
+
+            <!-- End Block (260) -->
+            <path d="M 125 660 L 125 740 L 275 740 L 275 680 L 255 660 Z" class="start-end-block"/>
+            <path d="M 255 660 L 255 680 L 275 680" fill="none" stroke="black" stroke-width="1"/>
+            <text x="200" y="770" class="label">Compliant Health NFT (260)</text>
+
+        </svg>
+    </div>
+</body>
+</html>

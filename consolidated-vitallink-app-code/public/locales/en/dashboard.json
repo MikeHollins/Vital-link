@@ -1,0 +1,21 @@
+{
+  "welcomeMessage": "Welcome to your health dashboard",
+  "healthOverview": "Your comprehensive health overview",
+  "quickConnect": "Quick Connect",
+  "connectedDevices": "Connected Devices",
+  "recentActivity": "Recent Activity",
+  "healthMetrics": "Health Metrics",
+  "dailyGoals": "Daily Goals",
+  "weeklyProgress": "Weekly Progress",
+  "dailySteps": "Daily Steps",
+  "heartRateZones": "Heart Rate Zones",
+  "weeklyTrends": "Weekly Trends",
+  "cardiovascularHealth": "Cardiovascular Health",
+  "sleepPattern": "Sleep Pattern",
+  "sleepPatternDesc": "Track your sleep quality and duration",
+  "heartRateDesc": "Monitor your heart rate throughout the day",
+  "aiInsightsCard": "AI Insights",
+  "todaysActivity": "Today's Activity",
+  "connectPlatformsDescription": "Connect new health platforms to centralize your data",
+  "manageDevicesSync": "Manage device synchronization and data access"
+}

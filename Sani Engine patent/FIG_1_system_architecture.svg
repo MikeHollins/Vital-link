@@ -1,0 +1,86 @@
+
+<svg id="system-architecture-diagram" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" aria-labelledby="diagramTitle">
+    <title id="diagramTitle">FIG. 1: System Architecture</title>
+    
+    <style>
+        .module-block {
+            fill: white;
+            stroke: black;
+            stroke-width: 1;
+        }
+        .label {
+            font-size: 14px;
+            font-weight: normal;
+            text-anchor: middle;
+            dominant-baseline: central;
+            pointer-events: none;
+            fill: black;
+            font-family: sans-serif;
+        }
+        .title-label {
+            font-size: 16px;
+            font-weight: bold;
+            text-anchor: middle;
+            fill: black;
+            font-family: sans-serif;
+        }
+        .arrow-line {
+            stroke: black;
+            stroke-width: 1;
+            fill: none;
+        }
+    </style>
+    
+    <!-- Define arrowhead marker -->
+    <defs>
+        <marker id="arrowhead" viewBox="0 0 10 10" refX="8" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="black" />
+        </marker>
+    </defs>
+
+    <!-- White Background -->
+    <rect x="0" y="0" width="100%" height="100%" fill="white"/>
+
+    <!-- Diagram Title -->
+    <text x="600" y="30" class="title-label">FIG. 1</text>
+
+    <!-- Data Ingestion Module (110) -->
+    <rect x="50" y="150" width="220" height="100" rx="2" class="module-block"/>
+    <text x="160" y="200" class="label">
+        <tspan x="160" dy="-0.6em">Data Ingestion Module</tspan>
+        <tspan x="160" dy="1.2em">(110)</tspan>
+    </text>
+
+    <!-- AI Redaction Engine (120) -->
+    <rect x="350" y="150" width="220" height="100" rx="2" class="module-block"/>
+    <text x="460" y="200" class="label">
+        <tspan x="460" dy="-0.6em">AI Redaction Engine</tspan>
+        <tspan x="460" dy="1.2em">(120)</tspan>
+    </text>
+
+    <!-- Data Encoder (130) -->
+    <rect x="650" y="150" width="220" height="100" rx="2" class="module-block"/>
+    <text x="760" y="200" class="label">
+        <tspan x="760" dy="-0.6em">Data Encoder</tspan>
+        <tspan x="760" dy="1.2em">(130)</tspan>
+    </text>
+    
+    <!-- Data Storage Interface (140) -->
+    <rect x="950" y="150" width="220" height="100" rx="2" class="module-block"/>
+    <text x="1060" y="200" class="label">
+        <tspan x="1060" dy="-0.6em">Data Storage Interface</tspan>
+        <tspan x="1060" dy="1.2em">(140)</tspan>
+    </text>
+
+    <!-- ARROWS -->
+    <!-- 110 -> 120 -->
+    <path d="M 270 200 H 340" class="arrow-line" marker-end="url(#arrowhead)"/>
+    
+    <!-- 120 -> 130 -->
+    <path d="M 570 200 H 640" class="arrow-line" marker-end="url(#arrowhead)"/>
+    
+    <!-- 130 -> 140 -->
+    <path d="M 870 200 H 940" class="arrow-line" marker-end="url(#arrowhead)"/>
+    
+</svg>

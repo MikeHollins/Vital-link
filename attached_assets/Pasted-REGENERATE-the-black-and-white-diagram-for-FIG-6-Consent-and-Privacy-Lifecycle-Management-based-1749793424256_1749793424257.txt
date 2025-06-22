@@ -1,0 +1,33 @@
+REGENERATE the black and white diagram for FIG. 6 ('Consent and Privacy Lifecycle Management') based on the previous structure, but strictly applying all missing reference numerals and correcting all specified arrow types and directions. Ensure the entire diagram, including all blocks, is fully visible.
+
+General Drawing Rules (Reiterate - apply to this figure):
+
+Strictly black and white. No shades of gray or color.
+Clear, uniformly thick, solid black lines for all shapes and arrows.
+No frames or borders around the diagram.
+All text labels within process blocks should be in ALL CAPS.
+All reference numerals should be in Arabic numerals (e.g., 600), enclosed in parentheses, and placed clearly near the component or step they identify. Ensure numerals are legible.
+Figure label "FIG. 6" must be centered directly below the entire diagram.
+Maintain consistent spacing and a clean, legible layout.
+Specific Adjustments for Components and Flow:
+
+Add ALL Missing Reference Numerals:
+
+The block labeled 'DATA INGESTION & USER CONSENT' needs the numeral (600).
+The block labeled 'CONSENT STORAGE' needs the numeral (610).
+The block labeled 'POLICY ENGINE' needs the numeral (620).
+The block labeled 'DATA PROCESSING (WITH CONSENT ENFORCEMENT)' needs the numeral (630).
+The block labeled 'DATA RETENTION & EXPIRY' needs the numeral (640).
+The block labeled 'CONSENT AUDIT & REVOCATION' needs the numeral (650).
+The block labeled 'DATA DELETION / ANONYMIZATION' needs the numeral (660). (Ensure this entire block is visible).
+Correct Specific Arrow Directions and Types:
+
+Arrow between (600) and (650):
+
+DELETE the existing arrow(s) between 'DATA INGESTION & USER CONSENT (600)' and 'CONSENT AUDIT & REVOCATION (650)'.
+DRAW a new, clear UNIDIRECTIONAL arrow originating from 'DATA INGESTION & USER CONSENT (600)' and pointing directly towards 'CONSENT AUDIT & REVOCATION (650)'. This arrow should represent a direct flow from initial data ingestion/consent to auditing, without looping back to 600.
+Arrow between (640) and (650):
+
+DELETE the existing unidirectional arrow between 'DATA RETENTION & EXPIRY (640)' and 'CONSENT AUDIT & REVOCATION (650)'.
+DRAW a new, clear BIDIRECTIONAL arrow connecting 'DATA RETENTION & EXPIRY (640)' and 'CONSENT AUDIT & REVOCATION (650)'. This arrow must have arrowheads at both ends.
+Maintain all other existing arrow connections and general layout of the blocks."

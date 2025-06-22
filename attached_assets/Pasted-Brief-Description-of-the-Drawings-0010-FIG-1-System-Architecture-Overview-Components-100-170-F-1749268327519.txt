@@ -1,0 +1,21 @@
+Brief Description of the Drawings
+[0010] FIG. 1: System Architecture Overview (Components 100–170)
+FIG. 1 is a block diagram illustrating the overall architecture for privacy-preserving health data verification, comprising a data intake module, constraint validation logic, zero-knowledge proof generation engine, blockchain anchoring system, and verifier interface.
+
+[0011] FIG. 2: Constraint Validation Pipeline (Components 200–270)
+FIG. 2 is a logic flow diagram depicting the operation of the constraint validation pipeline, including modules for physiological, temporal, environmental, and jurisdiction-specific rule enforcement, with optional circadian rhythm validation.
+
+[0012] FIG. 3: Zero-Knowledge Proof Engine Architecture (Components 300–370)
+FIG. 3 is a schematic diagram of the internal architecture of the zero-knowledge proof engine, illustrating the use of public and private inputs, protocol selection mechanisms (e.g., zk-SNARKs, Bulletproofs), and privacy-preserving processing boundaries.
+
+[0013] FIG. 4: Blockchain Anchoring Workflow (Components 400–470)
+FIG. 4 is a process flow diagram illustrating how zero-knowledge proofs are anchored to blockchain, including cryptographic timestamping, version control, immutability enforcement, and integration of consent and audit records.
+
+[0014] FIG. 5: Verification Interface Deployment (Components 500–570)
+FIG. 5 is a deployment diagram showing the verifier interface framework, including smart contracts and secure APIs enabling third-party verification of cryptographic proofs without accessing underlying biometric data.
+
+[0015] FIG. 6: Consent and Privacy Lifecycle Management (Components 600–670)
+FIG. 6 is a flowchart detailing consent lifecycle management and privacy-by-design mechanisms, including capture, revocation, scoping, jurisdictional filtering, and automated deletion based on regulatory requirements.
+
+[0016] FIG. 7: Edge and Mobile Proof Generation (Components 700–770)
+FIG. 7 is a deployment architecture diagram illustrating zero-knowledge proof generation on edge and mobile devices, such as wearable sensors and smartphones, with support for offline or low-resource environments and blockchain anchoring.

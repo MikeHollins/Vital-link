@@ -1,0 +1,152 @@
+To make Vital Link the most comprehensive personal health data aggregator, it should connect with a wide array of platforms, devices, and services. Please add this extensive and categorized list of health and wellness platforms it should integrate with:
+
+⸻
+
+1. General Health & Activity Platforms
+
+These platforms offer a central repository for activity, vitals, and health metrics:
+	•	Apple HealthKit
+	•	Google Fit
+	•	Samsung Health
+	•	Withings Health Mate
+	•	Huawei Health
+	•	Polar Flow
+
+⸻
+
+2. Wearables & Fitness Trackers
+
+These provide step counts, heart rate, workouts, VO2 max, stress tracking, and more:
+	•	Fitbit
+	•	Garmin Connect
+	•	Oura Ring
+	•	Whoop
+	•	Amazfit / Zepp Health
+	•	Xiaomi Mi Fit / Zepp Life
+	•	Coros
+	•	Suunto
+
+⸻
+
+3. Sleep Trackers
+
+Deep sleep, REM, sleep quality scores:
+	•	Oura Ring
+	•	Sleep Cycle
+	•	Pillow (iOS)
+	•	Fitbit / Garmin / Whoop (built-in)
+	•	Dreem (EEG-based)
+	•	Eight Sleep
+	•	Beddit (Apple-acquired)
+
+⸻
+
+4. Blood Glucose & Diabetes Platforms
+
+Essential for metabolic data and insights:
+	•	Dexcom (G6, G7)
+	•	Freestyle Libre / LibreLink / LibreView
+	•	Tandem t:connect
+	•	Medtronic CareLink
+	•	One Drop
+	•	MySugr
+	•	Glooko
+	•	Ascensia Contour
+	•	Levels Health (CGM + metabolic coaching)
+
+⸻
+
+5. Blood Pressure & Cardiovascular Monitoring
+
+Key for hypertensive users or cardiac monitoring:
+	•	Withings BPM
+	•	QardioArm
+	•	Omron Connect
+	•	iHealth
+	•	AliveCor Kardia (ECG)
+
+⸻
+
+6. Nutrition & Food Tracking
+
+To correlate dietary intake with glucose, energy, or sleep:
+	•	MyFitnessPal
+	•	Cronometer
+	•	Lose It!
+	•	Carb Manager (for keto/low-carb users)
+	•	Noom
+	•	Yazio
+	•	Zero (intermittent fasting app)
+
+⸻
+
+7. Menstrual & Hormonal Health
+
+Important for cycle tracking and hormonal patterns:
+	•	Clue
+	•	Flo
+	•	Natural Cycles
+	•	Kindara
+	•	Ovia Health
+	•	Glow
+
+⸻
+
+8. Mental Health & Mood Tracking
+
+Can provide correlations with physical health data:
+	•	Headspace
+	•	Calm
+	•	Wysa
+	•	Moodfit
+	•	Daylio
+	•	Bearable
+	•	Youper (AI mental health assistant)
+
+⸻
+
+9. Medication & Supplement Tracking
+
+To link adherence with health outcomes:
+	•	Medisafe
+	•	CareZone
+	•	MyTherapy
+	•	Pill Reminder - Meds Alarm
+	•	Zoe (personalized nutrition + supplements)
+
+⸻
+
+10. Genomics, Labs, & Biomarkers
+
+For users bringing external medical and DNA data:
+	•	23andMe
+	•	AncestryDNA
+	•	Helix
+	•	Everlywell
+	•	Thorne (biomarker tests)
+	•	InsideTracker
+	•	Labcorp / Quest Diagnostics portals
+	•	Circle DNA
+
+⸻
+
+11. Environmental Data Sources
+
+To contextualize symptoms or vitals with surroundings:
+	•	AirVisual / IQAir (air quality)
+	•	Allergycast / Pollen.com (pollen levels)
+	•	AccuWeather API (temperature/humidity)
+
+⸻
+
+12. Digital Therapeutics & Specialty Apps
+
+For niche conditions or behavioral health:
+	•	Omada Health (chronic condition support)
+	•	Virta Health (diabetes reversal)
+	•	BetterHelp (teletherapy)
+	•	Talkspace (mental health support)
+
+⸻
+
+Please create API prioritization roadmap (e.g., by ease of integration, popularity, or clinical relevance) and implement the first 10?

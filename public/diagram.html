@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patent Diagram - FIG. 1</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 1000px;
+            width: 100%;
+        }
+        svg {
+            width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" style="background: white;">
+            <style>
+                .block {
+                    fill: white;
+                    stroke: black;
+                    stroke-width: 2;
+                }
+                .tee-box {
+                    fill: none;
+                    stroke: black;
+                    stroke-width: 2;
+                    stroke-dasharray: 8 4;
+                }
+                .label {
+                    font-size: 12px;
+                    font-weight: 500;
+                    text-anchor: middle;
+                    dominant-baseline: central;
+                    font-family: Arial, sans-serif;
+                }
+                .title-label {
+                    font-size: 18px;
+                    font-weight: bold;
+                    text-anchor: middle;
+                    font-family: Arial, sans-serif;
+                }
+                .arrow-line {
+                    stroke: black;
+                    stroke-width: 2;
+                    fill: none;
+                }
+            </style>
+            
+            <defs>
+                <marker id="arrowhead" viewBox="0 0 10 10" refX="8" refY="5"
+                    markerWidth="6" markerHeight="6" orient="auto">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="black" />
+                </marker>
+            </defs>
+
+            <!-- Title -->
+            <text x="450" y="40" class="title-label">FIG. 1: System Architecture Overview</text>
+
+            <!-- Data Intake Module -->
+            <rect x="50" y="150" width="180" height="70" rx="4" class="block" />
+            <text x="140" y="180" class="label">Data Intake</text>
+            <text x="140" y="195" class="label">Module (110)</text>
+
+            <!-- Environmental Metadata Module -->
+            <rect x="50" y="350" width="180" height="70" rx="4" class="block" />
+            <text x="140" y="380" class="label">Environmental</text>
+            <text x="140" y="395" class="label">Metadata Module (120)</text>
+
+            <!-- Constraint Validation Module -->
+            <rect x="350" y="150" width="180" height="70" rx="4" class="block" />
+            <text x="440" y="180" class="label">Constraint Validation</text>
+            <text x="440" y="195" class="label">Module (130)</text>
+            
+            <!-- Zero-Knowledge Proof Engine -->
+            <rect x="350" y="300" width="180" height="70" rx="4" class="block" />
+            <text x="440" y="330" class="label">Zero-Knowledge</text>
+            <text x="440" y="345" class="label">Proof Engine (140)</text>
+
+            <!-- Blockchain Anchoring Module -->
+            <rect x="650" y="225" width="180" height="70" rx="4" class="block" />
+            <text x="740" y="255" class="label">Blockchain Anchoring</text>
+            <text x="740" y="270" class="label">Module (150)</text>
+
+            <!-- Verification Interface -->
+            <rect x="650" y="400" width="180" height="70" rx="4" class="block" />
+            <text x="740" y="430" class="label">Verification</text>
+            <text x="740" y="445" class="label">Interface (170)</text>
+
+            <!-- Trusted Execution Environment -->
+            <rect x="325" y="120" width="230" height="280" rx="8" class="tee-box" />
+            <text x="440" y="110" class="label" style="font-size: 11px;">Trusted Execution Environment (160)</text>
+
+            <!-- Arrows -->
+            <!-- 110 to 130 -->
+            <path d="M 230 185 L 340 185" class="arrow-line" marker-end="url(#arrowhead)"/>
+            
+            <!-- 120 to 130 (curved) -->
+            <path d="M 230 385 Q 280 385 280 280 Q 280 185 340 185" class="arrow-line" marker-end="url(#arrowhead)"/>
+
+            <!-- 130 to 140 -->
+            <path d="M 440 220 L 440 290" class="arrow-line" marker-end="url(#arrowhead)"/>
+            
+            <!-- 140 to 150 -->
+            <path d="M 530 335 Q 590 335 590 260 L 640 260" class="arrow-line" marker-end="url(#arrowhead)"/>
+            
+            <!-- 150 to 170 -->
+            <path d="M 740 295 L 740 390" class="arrow-line" marker-end="url(#arrowhead)"/>
+
+        </svg>
+    </div>
+</body>
+</html>

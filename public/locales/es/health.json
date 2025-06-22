@@ -1,0 +1,10 @@
+{
+  "heartRate": "Frecuencia Cardíaca",
+  "bloodPressure": "Presión Arterial",
+  "steps": "Pasos",
+  "sleepDuration": "Duración del Sueño",
+  "sleepQuality": "Calidad del Sueño",
+  "bpm": "LPM",
+  "hours": "horas",
+  "minutes": "minutos"
+}

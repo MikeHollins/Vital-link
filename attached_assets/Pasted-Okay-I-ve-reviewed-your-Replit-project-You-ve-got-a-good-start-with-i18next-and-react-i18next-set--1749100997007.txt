@@ -1,0 +1,789 @@
+Okay, I've reviewed your Replit project. You've got a good start with i18next and react-i18next set up, and some basic translations in place.
+
+The core task to achieve 100% translation is to:
+
+Identify all user-facing strings in your components.
+
+Replace them with calls to the t() function from useTranslation.
+
+Add corresponding keys and translations to your JSON translation files (en/translation.json, es/translation.json).
+
+Let's go through the necessary changes step-by-step.
+
+1. Refine i18n.ts (Optional but Recommended for Scalability)
+
+Your current i18n.ts embeds resources directly. This is fine for small projects, but HttpBackend is better for loading translations, especially if they grow or you add more languages. Since you already import HttpBackend, let's use it.
+
+// src/i18n.ts
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
+import HttpBackend from 'i18next-http-backend'; // You're importing this
+
+// Removed direct resource imports:
+// import translationEN from './locales/en/translation.json';
+// import translationES from './locales/es/translation.json';
+
+// const resources = {
+//   en: {
+//     translation: translationEN,
+//   },
+//   es: {
+//     translation: translationES,
+//   },
+// };
+
+i18n
+  .use(HttpBackend) // Use HttpBackend
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    // resources, // Remove this if using HttpBackend
+    backend: { // Configuration for HttpBackend
+      loadPath: '/locales/{{lng}}/{{ns}}.json', // Path to your translation files
+    },
+    fallbackLng: 'en',
+    debug: process.env.NODE_ENV === 'development', // Enable debug only in dev
+    interpolation: {
+      escapeValue: false, // React already safes from xss
+    },
+    detection: {
+      order: ['queryString', 'cookie', 'localStorage', 'navigator', 'htmlTag'],
+      caches: ['localStorage', 'cookie'],
+    },
+  });
+
+export default i18n;
+
+
+Action:
+
+Make sure your translation files (en/translation.json, es/translation.json) are in the public/locales/ directory. So the structure should be:
+
+public/locales/en/translation.json
+
+public/locales/es/translation.json
+
+If you make this change, you'll need to wrap your App component (or a higher-level component) in <React.Suspense> because translations will be loaded asynchronously.
+
+In src/index.tsx or src/main.tsx (wherever you render App):
+
+// src/index.tsx or src/main.tsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import './i18n'; // Ensure i18n is initialized
+import './index.css'; // Or your global styles
+
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
+);
+root.render(
+  <React.StrictMode>
+    <React.Suspense fallback="Loading..."> {/* Add Suspense here */}
+      <App />
+    </React.Suspense>
+  </React.StrictMode>
+);
+IGNORE_WHEN_COPYING_START
+content_copy
+download
+Use code with caution.
+Tsx
+IGNORE_WHEN_COPYING_END
+
+2. Create/Update Translation Files (public/locales/.../translation.json)
+
+You need to add keys for every piece of text. I'll suggest some keys based on your current UI.
+
+public/locales/en/translation.json:
+
+{
+  "vitalLink": "Vital Link",
+  "selectLanguage": "Select Language:",
+  "english": "English",
+  "spanish": "Español",
+  "home": "Home",
+  "dashboard": "Dashboard",
+  "profile": "Profile",
+  "login": "Login",
+  "logout": "Logout",
+  "welcomeToVitalLink": "Welcome to Vital Link",
+  "connectingSeamlessly": "Connecting Patients and Doctors Seamlessly",
+  "getStarted": "Get Started",
+  "auth": {
+    "loginTitle": "Login",
+    "signUpTitle": "Sign Up",
+    "emailPlaceholder": "Email",
+    "passwordPlaceholder": "Password",
+    "switchToSignUp": "Don't have an account? Sign Up",
+    "switchToLogin": "Already have an account? Login",
+    "loginError": "Login failed. Please check your credentials.",
+    "signUpError": "Sign up failed. Please try again."
+  },
+  "profilePage": {
+    "title": "Profile",
+    "userId": "User ID:",
+    "email": "Email:",
+    "role": "Role:",
+    "name": "Name:",
+    "namePlaceholder": "Enter your name",
+    "specialty": "Specialty:",
+    "specialtyPlaceholder": "Enter your specialty (if applicable)",
+    "editProfile": "Edit Profile",
+    "save": "Save",
+    "cancel": "Cancel",
+    "updateSuccess": "Profile updated successfully!",
+    "updateError": "Failed to update profile."
+  },
+  "dashboardPage": {
+    "title": "Dashboard",
+    "welcomeUser": "Welcome, {{name}}!"
+  }
+}
+IGNORE_WHEN_COPYING_START
+content_copy
+download
+Use code with caution.
+Json
+IGNORE_WHEN_COPYING_END
+
+public/locales/es/translation.json:
+
+{
+  "vitalLink": "Vital Link",
+  "selectLanguage": "Seleccionar Idioma:",
+  "english": "Inglés",
+  "spanish": "Español",
+  "home": "Inicio",
+  "dashboard": "Panel",
+  "profile": "Perfil",
+  "login": "Iniciar Sesión",
+  "logout": "Cerrar Sesión",
+  "welcomeToVitalLink": "Bienvenido a Vital Link",
+  "connectingSeamlessly": "Conectando Pacientes y Doctores sin Interrupciones",
+  "getStarted": "Empezar",
+  "auth": {
+    "loginTitle": "Iniciar Sesión",
+    "signUpTitle": "Registrarse",
+    "emailPlaceholder": "Correo Electrónico",
+    "passwordPlaceholder": "Contraseña",
+    "switchToSignUp": "¿No tienes una cuenta? Regístrate",
+    "switchToLogin": "¿Ya tienes una cuenta? Inicia Sesión",
+    "loginError": "Falló el inicio de sesión. Por favor, revisa tus credenciales.",
+    "signUpError": "Falló el registro. Por favor, inténtalo de nuevo."
+  },
+  "profilePage": {
+    "title": "Perfil",
+    "userId": "ID de Usuario:",
+    "email": "Correo Electrónico:",
+    "role": "Rol:",
+    "name": "Nombre:",
+    "namePlaceholder": "Ingresa tu nombre",
+    "specialty": "Especialidad:",
+    "specialtyPlaceholder": "Ingresa tu especialidad (si aplica)",
+    "editProfile": "Editar Perfil",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "updateSuccess": "¡Perfil actualizado exitosamente!",
+    "updateError": "Error al actualizar el perfil."
+  },
+  "dashboardPage": {
+    "title": "Panel",
+    "welcomeUser": "¡Bienvenido, {{name}}!"
+  }
+}
+IGNORE_WHEN_COPYING_START
+content_copy
+download
+Use code with caution.
+Json
+IGNORE_WHEN_COPYING_END
+
+Note the {{name}} for interpolation in dashboardPage.welcomeUser.
+
+3. Update Components to Use useTranslation
+
+This is the most significant part.
+
+src/App.tsx:
+
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next'; // Import useTranslation
+import HomePage from './pages/HomePage';
+import AuthPage from './pages/AuthPage';
+import Dashboard from './pages/Dashboard';
+import ProfilePage from './pages/ProfilePage';
+import NavigationBar from './components/NavigationBar';
+import { useAuth } from './context/AuthContext';
+import './App.css';
+
+function App() {
+  const { t, i18n } = useTranslation(); // Initialize useTranslation
+  const { user, loading } = useAuth();
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
+
+  if (loading) {
+    return <div>Loading application...</div>; // Or a proper spinner
+  }
+
+  return (
+    <Router>
+      <div className="App">
+        <NavigationBar />
+        <div style={{ padding: '1rem', marginTop: '60px' }}> {/* Basic styling for content below nav */}
+          <select onChange={(e) => changeLanguage(e.target.value)} value={i18n.language}>
+            <option value="en">{t('english')}</option>
+            <option value="es">{t('spanish')}</option>
+          </select>
+          <span> {t('selectLanguage')}</span> {/* Also translate the label */}
+        </div>
+
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/auth" element={user ? <Navigate to="/dashboard" /> : <AuthPage />} />
+          <Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to="/auth" />} />
+          <Route path="/profile" element={user ? <ProfilePage /> : <Navigate to="/auth" />} />
+          <Route path="*" element={<Navigate to="/" />} /> {/* Catch-all redirects to home */}
+        </Routes>
+      </div>
+    </Router>
+  );
+}
+
+export default App;
+IGNORE_WHEN_COPYING_START
+content_copy
+download
+Use code with caution.
+Tsx
+IGNORE_WHEN_COPYING_END
+
+src/components/NavigationBar.tsx:
+
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next'; // Import
+import { useAuth } from '../context/AuthContext';
+import './NavigationBar.css';
+
+const NavigationBar: React.FC = () => {
+  const { t } = useTranslation(); // Initialize
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    await logout();
+    navigate('/auth');
+  };
+
+  return (
+    <nav className="navbar">
+      <div className="navbar-brand">
+        <Link to="/">{t('vitalLink')}</Link>
+      </div>
+      <ul className="navbar-links">
+        <li><Link to="/">{t('home')}</Link></li>
+        {user && <li><Link to="/dashboard">{t('dashboard')}</Link></li>}
+        {user && <li><Link to="/profile">{t('profile')}</Link></li>}
+        {!user && <li><Link to="/auth">{t('login')}</Link></li>}
+        {user && <li><button onClick={handleLogout} className="logout-button">{t('logout')}</button></li>}
+      </ul>
+    </nav>
+  );
+};
+
+export default NavigationBar;
+IGNORE_WHEN_COPYING_START
+content_copy
+download
+Use code with caution.
+Tsx
+IGNORE_WHEN_COPYING_END
+
+src/pages/AuthPage.tsx:
+
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next'; // Import
+import { useAuth } from '../context/AuthContext';
+import './AuthPage.css';
+
+const AuthPage: React.FC = () => {
+  const { t } = useTranslation(); // Initialize
+  const [isLogin, setIsLogin] = useState(true);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState<string | null>(null);
+  const { login, signup } = useAuth();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError(null);
+    try {
+      if (isLogin) {
+        await login(email, password);
+      } else {
+        await signup(email, password);
+      }
+      // Navigation will be handled by App.tsx based on user state
+    } catch (err: any) {
+      setError(isLogin ? t('auth.loginError') : t('auth.signUpError'));
+      console.error(err);
+    }
+  };
+
+  return (
+    <div className="auth-container">
+      <form onSubmit={handleSubmit} className="auth-form">
+        <h2>{isLogin ? t('auth.loginTitle') : t('auth.signUpTitle')}</h2>
+        {error && <p className="error-message">{error}</p>}
+        <div className="form-group">
+          <label htmlFor="email">{t('auth.emailPlaceholder')}</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder={t('auth.emailPlaceholder')}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">{t('auth.passwordPlaceholder')}</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder={t('auth.passwordPlaceholder')}
+            required
+          />
+        </div>
+        <button type="submit" className="auth-button">
+          {isLogin ? t('auth.loginTitle') : t('auth.signUpTitle')}
+        </button>
+        <button type="button" onClick={() => setIsLogin(!isLogin)} className="switch-button">
+          {isLogin ? t('auth.switchToSignUp') : t('auth.switchToLogin')}
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default AuthPage;
+IGNORE_WHEN_COPYING_START
+content_copy
+download
+Use code with caution.
+Tsx
+IGNORE_WHEN_COPYING_END
+
+src/pages/Dashboard.tsx:
+
+import React from 'react';
+import { useTranslation } from 'react-i18next'; // Import
+import { useAuth } from '../context/AuthContext';
+import './Dashboard.css';
+
+const Dashboard: React.FC = () => {
+  const { t } = useTranslation(); // Initialize
+  const { user } = useAuth();
+
+  return (
+    <div className="dashboard-container">
+      <h2>{t('dashboardPage.title')}</h2>
+      {user && <p>{t('dashboardPage.welcomeUser', { name: user.email })}</p>} {/* Example with interpolation */}
+      {/* Add more dashboard content here */}
+    </div>
+  );
+};
+
+export default Dashboard;
+IGNORE_WHEN_COPYING_START
+content_copy
+download
+Use code with caution.
+Tsx
+IGNORE_WHEN_COPYING_END
+
+src/pages/HomePage.tsx:
+
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next'; // Import
+import './HomePage.css';
+
+const HomePage: React.FC = () => {
+  const { t } = useTranslation(); // Initialize
+  return (
+    <div className="homepage-container">
+      <header className="homepage-header">
+        <h1>{t('welcomeToVitalLink')}</h1>
+        <p>{t('connectingSeamlessly')}</p>
+        <Link to="/auth" className="cta-button">{t('getStarted')}</Link>
+      </header>
+      {/* You can add more sections like Features, About Us, etc. */}
+    </div>
+  );
+};
+
+export default HomePage;
+IGNORE_WHEN_COPYING_START
+content_copy
+download
+Use code with caution.
+Tsx
+IGNORE_WHEN_COPYING_END
+
+src/pages/ProfilePage.tsx:
+
+import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next'; // Import
+import { useAuth } from '../context/AuthContext';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
+import { db } from '../firebaseConfig'; // Ensure db is correctly exported from firebaseConfig
+import './ProfilePage.css';
+
+interface UserProfile {
+  name?: string;
+  role?: string; // Assuming role is part of profile
+  specialty?: string; // For doctors
+}
+
+const ProfilePage: React.FC = () => {
+  const { t } = useTranslation(); // Initialize
+  const { user } = useAuth();
+  const [profile, setProfile] = useState<UserProfile>({});
+  const [isEditing, setIsEditing] = useState(false);
+  const [nameInput, setNameInput] = useState('');
+  const [specialtyInput, setSpecialtyInput] = useState('');
+  const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      if (user) {
+        const docRef = doc(db, 'users', user.uid);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          const data = docSnap.data() as UserProfile;
+          setProfile(data);
+          setNameInput(data.name || '');
+          setSpecialtyInput(data.specialty || '');
+        } else {
+          // Set default role if profile doesn't exist, or handle as needed
+          setProfile({ role: 'patient' }); // Example default
+        }
+      }
+    };
+    fetchProfile();
+  }, [user]);
+
+  const handleEditToggle = () => {
+    setIsEditing(!isEditing);
+    setMessage(null);
+    if (!isEditing) { // When switching to edit mode, populate inputs
+        setNameInput(profile.name || '');
+        setSpecialtyInput(profile.specialty || '');
+    }
+  };
+
+  const handleSaveProfile = async () => {
+    if (!user) return;
+    try {
+      const userDocRef = doc(db, 'users', user.uid);
+      const newProfileData: UserProfile = {
+        ...profile, // keep existing data like role
+        name: nameInput,
+        // Only save specialty if it's relevant (e.g., for doctors)
+        // You might want to add logic to determine if user is a doctor
+        ...(profile.role === 'doctor' && { specialty: specialtyInput }),
+      };
+      await setDoc(userDocRef, newProfileData, { merge: true });
+      setProfile(newProfileData);
+      setIsEditing(false);
+      setMessage({ type: 'success', text: t('profilePage.updateSuccess') });
+    } catch (error) {
+      console.error("Error updating profile: ", error);
+      setMessage({ type: 'error', text: t('profilePage.updateError') });
+    }
+  };
+
+  if (!user) {
+    return <p>Loading user profile...</p>; // Or redirect
+  }
+
+  return (
+    <div className="profile-container">
+      <h2>{t('profilePage.title')}</h2>
+      {message && <p className={`message ${message.type}`}>{message.text}</p>}
+      <div className="profile-details">
+        <p><strong>{t('profilePage.userId')}</strong> {user.uid}</p>
+        <p><strong>{t('profilePage.email')}</strong> {user.email}</p>
+        <p><strong>{t('profilePage.role')}</strong> {profile.role || 'N/A'}</p> {/* Display role */}
+
+        {isEditing ? (
+          <>
+            <div className="form-group">
+              <label htmlFor="name">{t('profilePage.name')}</label>
+              <input
+                type="text"
+                id="name"
+                value={nameInput}
+                onChange={(e) => setNameInput(e.target.value)}
+                placeholder={t('profilePage.namePlaceholder')}
+              />
+            </div>
+            {/* Conditionally show specialty if user is a doctor, or based on your logic */}
+            {profile.role === 'doctor' && (
+              <div className="form-group">
+                <label htmlFor="specialty">{t('profilePage.specialty')}</label>
+                <input
+                  type="text"
+                  id="specialty"
+                  value={specialtyInput}
+                  onChange={(e) => setSpecialtyInput(e.target.value)}
+                  placeholder={t('profilePage.specialtyPlaceholder')}
+                />
+              </div>
+            )}
+            <button onClick={handleSaveProfile} className="profile-button save">
+              {t('profilePage.save')}
+            </button>
+            <button onClick={handleEditToggle} className="profile-button cancel">
+              {t('profilePage.cancel')}
+            </button>
+          </>
+        ) : (
+          <>
+            <p><strong>{t('profilePage.name')}</strong> {profile.name || 'N/A'}</p>
+            {profile.role === 'doctor' && <p><strong>{t('profilePage.specialty')}</strong> {profile.specialty || 'N/A'}</p>}
+            <button onClick={handleEditToggle} className="profile-button">
+              {t('profilePage.editProfile')}
+            </button>
+          </>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default ProfilePage;
+IGNORE_WHEN_COPYING_START
+content_copy
+download
+Use code with caution.
+Tsx
+IGNORE_WHEN_COPYING_END
+
+4. Type Safety for Translation Keys (Advanced but Recommended)
+
+To avoid typos in your translation keys and get autocompletion, you can generate TypeScript definitions for your translation keys.
+
+Install i18next-parser:
+npm install i18next-parser --save-dev
+or
+yarn add i18next-parser --dev
+
+Add a script to package.json:
+
+"scripts": {
+  // ... other scripts
+  "i18n:extract": "i18next-parser --config i18next-parser.config.js"
+}
+IGNORE_WHEN_COPYING_START
+content_copy
+download
+Use code with caution.
+Json
+IGNORE_WHEN_COPYING_END
+
+Create i18next-parser.config.js in your project root:
+
+// i18next-parser.config.js
+module.exports = {
+  contextSeparator: '_',
+  // Key separator used in your translation keys
+  // If you want to use plain english keys, separators such as
+  // ':' or '.' will conflict. You might want to set keySeparator: false
+  keySeparator: '.', // Use '.' for nested keys like 'auth.loginTitle'
+  // see below for more details
+  // keySeparator: false,
+  // nsSeparator: false,
+
+  // Location of translation files
+  locales: ['en', 'es'], // Add all your languages here
+
+  // Namespace used in your translation files
+  // If you want to use plain english keys, separators such as
+  // ':' or '.' will conflict. You might want to set nsSeparator: false
+  // namespaceSeparator: false,
+  // see below for more details
+  // namespaceSeparator: ':',
+
+  // output: 'src/locales/$LOCALE/$NAMESPACE.json', // For updating JSON files directly (careful)
+  output: 'src/react-i18next.d.ts', // Output path for TS definitions
+
+  // An array of globs that describe where to look for source files
+  // In this case, './src/**/*.{js,jsx,ts,tsx}'
+  input: ['src/**/*.{js,jsx,ts,tsx}'],
+
+  // For custom components, specify a list of Component names along with the prop name that contains a key.
+  //       lexers: {
+  //         js: ['JavascriptLexer'],
+  //         ts: ['JavascriptLexer'],
+  //         jsx: ['JsxLexer'],
+  //         tsx: ['JsxLexer'],
+
+  //         default: ['JavascriptLexer']
+  //       },
+
+  // lineEnding: 'auto',
+  // Control the line ending. See options at https://github.com/ryanve/eol
+
+  // An array of the locales in your applications
+  // locales: ['en', 'fr', 'ফু'],
+
+  // Namespace separator used in your translation keys
+  // If you want to use plain english keys, separators such as
+  // ':' or '.' will conflict. You might want to set nsSeparator: false
+  // namespaceSeparator: ':',
+  // // Default namespace used in your i18next config
+  // defaultNamespace: 'translation',
+
+  // // Output path to translation files
+  // output: 'public/locales/$LOCALE/$NAMESPACE.json',
+
+  // // An array of globs that describe where to look for source files
+  // // In this case, './src/**/*.{js,jsx,ts,tsx}'
+  // input: undefined,
+
+  // sort: false,
+  // // Whether or not to sort the catalog. Can also be a custom sort function (see below)
+
+  // skipDefaultValues: false,
+  // // Whether to ignore default values.
+  // // Can also be an array of languages to ignore default values for (e.g. ['en'])
+
+  // useKeysAsDefaultValue: false,
+  // // Whether to use the keys as the default value; ex. "Hello": "Hello", "World": "World"
+  // // The option `defaultValue` will override this if you pass in both.
+  // // Can also be an array of languages to use keys as default values for (e.g. ['en'])
+
+  // verbose: false,
+  // // Display info about the parsing including some stats
+
+  // failOnWarnings: false,
+  // // Exit with an exit code of 1 on warnings
+
+  // failOnUpdate: true,
+  // // Exit with an exit code of 1 when translations are updated (for CI purpose)
+
+  // // customValueTemplate: null,
+  // // // If you wish to customize the value output the value stored in the json,
+  // // // see the examples below
+
+  // resetDefaultValueLocale: null,
+  // // The locale to compare with default values to determine whether a default value has been changed.
+  // // If this is set - only the keys from that language will be updated.
+
+  // i18nextOptions: null
+  // // If you wish to customize options in internally used i18next instance,
+  // // see the examples below
+};
+IGNORE_WHEN_COPYING_START
+content_copy
+download
+Use code with caution.
+JavaScript
+IGNORE_WHEN_COPYING_END
+
+Correction: The output for type definitions should be something like src/react-i18next.d.ts. The example above has a mix from the template. The output property is the key for type definitions.
+For generating/updating JSON files (be careful, it might overwrite): If you want i18next-parser to also create missing keys in your JSON files, you'd set output: 'public/locales/$LOCALE/$NAMESPACE.json' (or wherever your JSONs are) and createOldCatalogs: true. For just type definitions, use the .d.ts output.
+
+Let's simplify the i18next-parser.config.js for generating type definitions:
+
+// i18next-parser.config.js
+module.exports = {
+  locales: ['en', 'es'], // Your languages
+  output: 'src/react-i18next.d.ts', // Output for TS definitions
+  input: ['src/**/*.{ts,tsx}'], // Files to scan
+  keySeparator: '.', // Use '.' if your keys are like 'namespace.key'
+  // nsSeparator: ':', // Use if you have namespaces like 'ns:key'
+  // defaultNamespace: 'translation', // Your default namespace
+  // useKeysAsDefaultValue: false, // Set to true if you want keys to be the default values
+  //
+  // // It's good practice to explicitly define your lexers
+  lexers: {
+    ts: [{ lexer: 'JavascriptLexer' }],
+    tsx: [{ lexer: 'JsxLexer' }],
+    default: [{ lexer: 'JavascriptLexer' }],
+  },
+};
+IGNORE_WHEN_COPYING_START
+content_copy
+download
+Use code with caution.
+JavaScript
+IGNORE_WHEN_COPYING_END
+
+Create src/react-i18next.d.ts (the parser will populate this):
+
+// src/react-i18next.d.ts
+import 'react-i18next';
+// import all your json files here
+import translationEN from '../public/locales/en/translation.json'; // Adjust path if needed
+import translationES from '../public/locales/es/translation.json'; // Adjust path if needed
+
+declare module 'react-i18next' {
+  interface CustomTypeOptions {
+    //defaultNS: typeof defaultNS; // if you have a default NS
+    resources: {
+      en: typeof translationEN;
+      es: typeof translationES;
+      // add other languages here
+    };
+    // if you want to use NS, specify them here
+    // ns: ['common', 'featureA'];
+  }
+}
+IGNORE_WHEN_COPYING_START
+content_copy
+download
+Use code with caution.
+TypeScript
+IGNORE_WHEN_COPYING_END
+
+Important: The paths in import translationEN from ... must correctly point to your JSON files from the location of this .d.ts file. If react-i18next.d.ts is in src/ and JSONs are in public/locales/..., then ../public/locales/... is correct.
+
+Run the script:
+npm run i18n:extract
+or
+yarn i18n:extract
+
+This will populate src/react-i18next.d.ts based on your translation.json files, giving you type checking for the t function.
+
+Summary of Actions:
+
+(Recommended) Modify i18n.ts to use HttpBackend and move translation JSONs to public/locales/lang/translation.json.
+
+(Recommended) Wrap App in React.Suspense if using HttpBackend.
+
+Go through every component:
+
+Import useTranslation from react-i18next.
+
+Call const { t } = useTranslation();
+
+Replace every hardcoded string meant for users with t('yourChosenKey').
+
+For dynamic parts, use interpolation: t('welcomeUser', { name: user.name }).
+
+Populate your translation.json files in public/locales/en and public/locales/es with all the new keys and their translations.
+
+(Advanced) Set up i18next-parser for type-safe translation keys.
+
+This is a comprehensive process. Start with one component, get its translations working, then move to the next. The ProfilePage and AuthPage have many strings, so they'll be good candidates to tackle. Good luck!

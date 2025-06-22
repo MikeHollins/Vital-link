@@ -1,0 +1,21 @@
+Here are the descriptions for FIG. 7 that align with USPTO requirements and your enhanced patent content:
+
+⸻
+
+Brief Description of the Drawings (for FIG. 7)
+
+[0014] FIG. 7 illustrates blockchain-based storage options for anchoring zero-knowledge proofs, including on-chain, hybrid (off-chain storage with on-chain anchoring), and cross-chain architectures to enable scalable, immutable, and verifiable health data proof retention.
+
+⸻
+
+Detailed Description of the Invention – FIG. 7
+
+[0025] Referring to FIG. 7, the system supports multiple blockchain integration strategies to immutably anchor the zero-knowledge proofs generated for verified health data.
+
+In one embodiment, the system uses on-chain storage, in which the zero-knowledge proof is directly written to a public blockchain ledger, such as Ethereum mainnet, ensuring maximum transparency and tamper-resistance. While this method provides high integrity, it may incur higher transaction costs and latency, especially in high-throughput use cases.
+
+In a second embodiment, the system utilizes a hybrid architecture, where the full zero-knowledge proof is stored off-chain (e.g., in IPFS, Arweave, or secure cloud infrastructure), and a cryptographic hash or Merkle root of the proof is anchored on-chain. This reduces on-chain data payload while preserving verifiability and auditability. This model is suitable for scalable applications such as research trials or insurance platforms that require cost-efficiency with integrity.
+
+A third embodiment provides cross-chain compatibility, where the system anchors proof metadata to multiple chains (e.g., Ethereum, Polygon, Avalanche, Solana) using bridge protocols or interoperability layers. This enables validation across networks while avoiding vendor lock-in and enhancing redundancy. The cross-chain approach also supports selective transparency, allowing regulated parties to verify compliance without accessing private biometric values.
+
+Collectively, these blockchain anchoring options provide cryptographic immutability, decentralized verification, and scalable storage mechanisms for privacy-preserving health data validation workflows.

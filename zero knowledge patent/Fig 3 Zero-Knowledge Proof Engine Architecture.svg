@@ -1,0 +1,91 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" style="background: white;">
+    <style>
+        .main-block {
+            fill: white;
+            stroke: black;
+            stroke-width: 1.5;
+        }
+        .inner-block {
+            fill: white;
+            stroke: black;
+            stroke-width: 1;
+        }
+        .privacy-boundary {
+            fill: none;
+            stroke: black;
+            stroke-width: 1.5;
+            stroke-dasharray: 6 4;
+        }
+        .label {
+            font-size: 14px;
+            font-weight: 500;
+            text-anchor: middle;
+            dominant-baseline: central;
+            fill: black;
+            font-family: Arial, sans-serif;
+        }
+        .sub-label {
+            font-size: 11px;
+            font-weight: 400;
+            text-anchor: middle;
+            fill: black;
+            font-family: Arial, sans-serif;
+        }
+        .title-label {
+            font-size: 16px;
+            font-weight: 600;
+            text-anchor: middle;
+            fill: black;
+            font-family: Arial, sans-serif;
+        }
+        .arrow-line {
+            stroke: black;
+            stroke-width: 1.5;
+            fill: none;
+        }
+    </style>
+    
+    <defs>
+        <marker id="arrowhead" viewBox="0 0 10 10" refX="8" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="black" />
+        </marker>
+    </defs>
+
+    <!-- Figure Label (USPTO Format) -->
+    <text x="400" y="470" class="title-label" style="font-size: 18px; font-weight: 700;">FIG. 3</text>
+
+    <!-- Main Proof Engine Block -->
+    <rect x="200" y="100" width="400" height="300" rx="8" class="main-block" />
+    <text x="400" y="125" class="label" style="font-weight: 600;">Proof Engine (300)</text>
+
+    <!-- Individual box around Public Inputs (310) -->
+    <rect x="20" y="150" width="130" height="50" rx="4" class="main-block"/>
+    
+    <!-- Individual box around Encrypted Private Inputs (320) -->
+    <rect x="10" y="300" width="140" height="50" rx="4" class="main-block"/>
+    
+    <!-- Input Labels and Arrows -->
+    <text x="80" y="165" class="label">Public</text>
+    <text x="80" y="180" class="label">Inputs (310)</text>
+    <path d="M 150 180 H 190" class="arrow-line" marker-end="url(#arrowhead)"/>
+    
+    <text x="80" y="315" class="label">Encrypted Private</text>
+    <text x="80" y="330" class="label">Biometric Inputs (320)</text>
+    <path d="M 150 330 H 190" class="arrow-line" marker-end="url(#arrowhead)"/>
+
+    <!-- Internal Block -->
+    <rect x="275" y="200" width="250" height="100" rx="4" class="inner-block"/>
+    <text x="400" y="235" class="label">Protocol Selection (330)</text>
+    <text x="400" y="265" class="sub-label">e.g., zk-SNARKs, Bulletproofs</text>
+
+    <!-- Privacy Boundary -->
+    <path d="M 220 280 H 580" class="privacy-boundary" />
+    <text x="400" y="295" class="label" style="font-size:12px;">Privacy Boundary</text>
+
+    <!-- Output Arrow -->
+    <text x="700" y="315" class="label">Cryptographic</text>
+    <text x="700" y="330" class="label">Proof</text>
+    <path d="M 610 330 H 650" class="arrow-line" marker-end="url(#arrowhead)"/>
+    
+</svg>

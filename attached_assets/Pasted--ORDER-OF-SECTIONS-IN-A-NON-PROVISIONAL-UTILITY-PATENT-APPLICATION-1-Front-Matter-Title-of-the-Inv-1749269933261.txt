@@ -1,0 +1,66 @@
+✅ ORDER OF SECTIONS IN A NON-PROVISIONAL UTILITY PATENT APPLICATION
+1. Front Matter
+Title of the Invention
+
+Cross-Reference to Related Applications (if any)
+
+Statement Regarding Federally Sponsored Research or Development (if applicable)
+
+Names of Parties to a Joint Research Agreement (if applicable)
+
+Incorporation by Reference (optional but used to reference prior applications or publications)
+
+2. Background of the Invention
+Field of the Invention
+A brief 1–2 sentence description of the technical field.
+
+Description of the Related Art
+Discusses shortcomings of existing technologies and references any known prior art. May include:
+
+Problem Summary
+
+Comparative Prior Art
+
+Regulatory Gaps
+
+3. Summary of the Invention
+Summarizes what the invention does without going into full detail. Emphasizes novelty, advantages, and key features (e.g., “In one embodiment, the system...” etc.).
+
+4. Brief Description of the Drawings
+Short, numbered summaries of each figure (e.g., “Figure 1 illustrates the system architecture for...”)
+
+5. Detailed Description of the Invention
+Includes the full technical explanation of your invention with figure callouts and reference numerals matching the drawings. Usually includes:
+
+Definitions and Terminology
+
+System Overview
+
+Module-by-Module Description
+
+Optional Embodiment Variants
+
+Circuit and Data Flow Explanation
+
+Deployment Scenarios
+
+6. Claims
+Numbered paragraphs beginning with “What is claimed is:”
+
+Independent and dependent claims describing the scope of legal protection
+
+Typically 1–3 independent claims and up to 20 total for micro entity status
+
+7. Abstract of the Disclosure
+One paragraph (≤150 words) summarizing the invention
+
+No legal terminology or claim-like language (avoid “means for”)
+
+Reflects the broadest concept of the invention
+
+8. Drawings (Figures)
+Sequentially numbered (e.g., FIG. 1, FIG. 2...)
+
+Each element labeled with reference numerals that match those in the Detailed Description
+
+Each drawing must comply with USPTO size and format guidelines (black-and-white, line drawings, no shading unless to show surface contour)

@@ -1,0 +1,11 @@
+
+{
+  "age_requirement": 21,
+  "health_threshold": 85,
+  "fitness_minimum": 60,
+  "compliance_rules": {
+    "hipaa": true,
+    "gdpr": true,
+    "data_retention_days": 2555
+  }
+}

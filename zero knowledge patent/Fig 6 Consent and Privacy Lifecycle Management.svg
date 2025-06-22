@@ -1,0 +1,76 @@
+<svg width="800" height="650" xmlns="http://www.w3.org/2000/svg">
+  <!-- White background -->
+  <rect width="800" height="650" fill="white"/>
+
+  <!-- DATA INGESTION & USER CONSENT (600) -->
+  <rect x="50" y="50" width="200" height="60" fill="none" stroke="black" stroke-width="2"/>
+  <text x="150" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">DATA INGESTION &amp;</text>
+  <text x="150" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">USER CONSENT</text>
+  <text x="150" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">(600)</text>
+
+  <!-- Arrow from (600) to (610) -->
+  <line x1="150" y1="110" x2="150" y2="140" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Arrow from right side of (600) to top of (650) -->
+  <path d="M 250 80 L 510 80 L 510 460" fill="none" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- CONSENT STORAGE (610) -->
+  <ellipse cx="150" cy="170" rx="80" ry="30" fill="none" stroke="black" stroke-width="2"/>
+  <text x="150" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">CONSENT STORAGE</text>
+  <text x="150" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">(610)</text>
+
+  <!-- Arrow from (610) to (620) -->
+  <line x1="150" y1="200" x2="150" y2="230" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- POLICY ENGINE (620) -->
+  <rect x="75" y="250" width="150" height="50" fill="none" stroke="black" stroke-width="2"/>
+  <text x="150" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">POLICY ENGINE</text>
+  <text x="150" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">(620)</text>
+
+  <!-- Arrow from (620) to (630) -->
+  <line x1="150" y1="300" x2="150" y2="330" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- DATA PROCESSING (WITH CONSENT ENFORCEMENT) (630) -->
+  <rect x="25" y="350" width="250" height="60" fill="none" stroke="black" stroke-width="2"/>
+  <text x="150" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">DATA PROCESSING</text>
+  <text x="150" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">(WITH CONSENT ENFORCEMENT)</text>
+  <text x="150" y="400" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">(630)</text>
+
+  <!-- Arrow from (630) to (640) -->
+  <line x1="150" y1="410" x2="150" y2="440" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- DATA RETENTION & EXPIRY (640) -->
+  <rect x="50" y="460" width="200" height="50" fill="none" stroke="black" stroke-width="2"/>
+  <text x="150" y="480" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">DATA RETENTION &amp; EXPIRY</text>
+  <text x="150" y="495" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">(640)</text>
+
+  <!-- CONSENT AUDIT & REVOCATION (650) -->
+  <rect x="400" y="460" width="220" height="50" fill="none" stroke="black" stroke-width="2"/>
+  <text x="510" y="480" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">CONSENT AUDIT &amp; REVOCATION</text>
+  <text x="510" y="495" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">(650)</text>
+
+  <!-- Bidirectional arrow between (640) and (650) -->
+  <line x1="250" y1="485" x2="400" y2="485" stroke="black" stroke-width="2" marker-start="url(#arrowhead-left)" marker-end="url(#arrowhead)"/>
+
+  <!-- DATA DELETION / ANONYMIZATION (660) -->
+  <rect x="200" y="540" width="220" height="70" fill="none" stroke="black" stroke-width="2"/>
+  <text x="310" y="560" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">DATA DELETION /</text>
+  <text x="310" y="575" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">ANONYMIZATION</text>
+  <text x="310" y="590" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">(660)</text>
+
+  <!-- Arrow from (650) to (660) with 90-degree turn -->
+  <path d="M 510 510 L 510 565 L 420 565" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- Figure label -->
+  <text x="400" y="630" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">FIG. 6</text>
+
+  <!-- Arrow marker definitions -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="black"/>
+    </marker>
+    <marker id="arrowhead-left" markerWidth="10" markerHeight="7" refX="1" refY="3.5" orient="auto">
+      <polygon points="10 0, 0 3.5, 10 7" fill="black"/>
+    </marker>
+  </defs>
+</svg>

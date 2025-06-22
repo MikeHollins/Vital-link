@@ -1,0 +1,113 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIG. 2: Data Transformation Flowchart</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #ffffff;
+        }
+        .process-block, .output-shape {
+            fill: white;
+            stroke: black;
+            stroke-width: 1; /* Thin lines */
+        }
+        .start-end-block {
+            fill: white;
+            stroke: black;
+            stroke-width: 1;
+        }
+        .label {
+            font-size: 14px;
+            font-weight: normal; /* Simple font weight */
+            text-anchor: middle;
+            dominant-baseline: central;
+            pointer-events: none;
+            fill: black;
+        }
+        .title-label {
+            font-size: 16px;
+            font-weight: bold;
+            text-anchor: middle;
+            fill: black;
+        }
+        .arrow-line {
+            stroke: black;
+            stroke-width: 1; /* Thin lines */
+            fill: none;
+        }
+    </style>
+</head>
+<body style="display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0;">
+    <div style="width: 100%; max-width: 500px; padding: 1rem;">
+        <svg id="data-flowchart-diagram" viewBox="0 0 400 900" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: auto;" aria-labelledby="diagramTitle">
+            <title id="diagramTitle">FIG. 2: Data Transformation Flowchart</title>
+            
+            <!-- Define arrowhead marker -->
+            <defs>
+                <marker id="arrowhead" viewBox="0 0 10 10" refX="8" refY="5"
+                    markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="black" />
+                </marker>
+            </defs>
+
+            <!-- Diagram Title -->
+            <text x="200" y="30" class="title-label">FIG. 2</text>
+
+            <!-- Start Block (210) -->
+            <rect x="75" y="80" width="250" height="60" rx="30" class="start-end-block"/>
+            <text x="200" y="110" class="label">Verified Health Attestation (210)</text>
+
+            <!-- Arrow -->
+            <path d="M 200 140 V 170" class="arrow-line" marker-end="url(#arrowhead)"/>
+            
+            <!-- Process Block (220) -->
+            <rect x="75" y="180" width="250" height="80" rx="2" class="process-block"/>
+            <text x="200" y="220" class="label">
+                <tspan x="200" dy="-0.6em">AI-Powered</tspan>
+                <tspan x="200" dy="1.2em">PHI Sanitization (220)</tspan>
+            </text>
+
+            <!-- Arrow -->
+            <path d="M 200 260 V 290" class="arrow-line" marker-end="url(#arrowhead)"/>
+
+            <!-- Process Block (230) -->
+            <rect x="75" y="300" width="250" height="80" rx="2" class="process-block"/>
+            <text x="200" y="340" class="label">
+                <tspan x="200" dy="-0.6em">Ontology-Based</tspan>
+                <tspan x="200" dy="1.2em">Metadata Encoding (230)</tspan>
+            </text>
+
+            <!-- Arrow -->
+            <path d="M 200 380 V 410" class="arrow-line" marker-end="url(#arrowhead)"/>
+            
+            <!-- Process Block (240) -->
+            <rect x="75" y="420" width="250" height="80" rx="2" class="process-block"/>
+            <text x="200" y="460" class="label">Cryptographic Commitment (240)</text>
+
+            <!-- Arrow -->
+            <path d="M 200 500 V 530" class="arrow-line" marker-end="url(#arrowhead)"/>
+
+            <!-- Process Block (250) -->
+            <rect x="75" y="540" width="250" height="80" rx="2" class="process-block"/>
+            <text x="200" y="580" class="label">NFT Minting (250)</text>
+
+            <!-- Arrow -->
+            <path d="M 200 620 V 650" class="arrow-line" marker-end="url(#arrowhead)"/>
+
+            <!-- End Block (260) - Document Icon -->
+            <g>
+                <path d="M 125 660 L 125 760 L 275 760 L 275 680 L 255 660 Z" class="output-shape"/>
+                <path d="M 255 660 L 255 680 L 275 680" fill="none" stroke="black" stroke-width="1"/>
+                <text x="200" y="710" class="label">
+                    <tspan x="200" dy="-0.6em">Compliant Health NFT</tspan>
+                    <tspan x="200" dy="1.2em">(260)</tspan>
+                </text>
+            </g>
+
+        </svg>
+    </div>
+</body>
+</html>

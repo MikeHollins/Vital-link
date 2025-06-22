@@ -1,0 +1,123 @@
+<svg viewBox="0 0 1100 600" xmlns="http://www.w3.org/2000/svg" style="background: white;">
+    <style>
+        .main-container-block {
+            fill: none;
+            stroke: black;
+            stroke-width: 1.5;
+            stroke-dasharray: 8 5;
+        }
+        .process-block {
+            fill: white;
+            stroke: black;
+            stroke-width: 1;
+        }
+        .ledger-block {
+            fill: white;
+            stroke: black;
+            stroke-width: 1.5;
+        }
+        .verifier-block {
+            fill: white;
+            stroke: black;
+            stroke-width: 1.5;
+        }
+        .audit-block {
+            fill: white;
+            stroke: black;
+            stroke-width: 1.5;
+        }
+        .label {
+            font-size: 14px;
+            font-weight: 500;
+            text-anchor: middle;
+            dominant-baseline: central;
+            fill: black;
+            font-family: Arial, sans-serif;
+        }
+        .numeral {
+            font-size: 12px;
+            font-weight: 600;
+            text-anchor: middle;
+            dominant-baseline: central;
+            fill: black;
+            font-family: Arial, sans-serif;
+        }
+        .title-label {
+            font-size: 18px;
+            font-weight: 700;
+            text-anchor: middle;
+            fill: black;
+            font-family: Arial, sans-serif;
+        }
+        .arrow-line {
+            stroke: black;
+            stroke-width: 1.5;
+            fill: none;
+        }
+    </style>
+
+    <defs>
+        <marker id="arrowhead" viewBox="0 0 10 10" refX="8" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="black" />
+        </marker>
+    </defs>
+
+    <!-- Document icon above ZK Proof -->
+    <g class="document-block">
+        <!-- Main document body -->
+        <path d="M 40 190 L 160 190 L 160 200 L 150 210 L 150 270 L 40 270 Z" class="process-block"/>
+        <!-- Folded corner -->
+        <path d="M 150 200 L 160 200 L 150 210 Z" fill="white" stroke="black" stroke-width="2"/>
+        <!-- Text inside document -->
+        <text x="100" y="220" class="label" font-size="10px">GENERATED</text>
+        <text x="100" y="235" class="label" font-size="10px">ZK PROOF</text>
+        <text x="100" y="250" class="numeral" font-size="10px">(400)</text>
+    </g>
+
+    <path d="M 170 230 H 240" class="arrow-line" marker-end="url(#arrowhead)"/>
+
+    <!-- Main Container Block for Modules -->
+    <rect x="250" y="100" width="400" height="400" rx="8" class="main-container-block" />
+
+    <!-- Internal Modules -->
+    <rect x="300" y="130" width="300" height="60" rx="4" class="process-block"/>
+    <text x="450" y="160" class="label">Timestamping Module (410)</text>
+
+    <rect x="300" y="210" width="300" height="60" rx="4" class="process-block"/>
+    <text x="450" y="240" class="label">Immutability Enforcement (420)</text>
+
+    <rect x="300" y="290" width="300" height="60" rx="4" class="process-block"/>
+    <text x="450" y="320" class="label">Version Control (430)</text>
+
+    <rect x="300" y="370" width="300" height="60" rx="4" class="process-block"/>
+    <text x="450" y="400" class="label">Consent Integration (440)</text>
+
+    <!-- Output Arrow -->
+    <path d="M 660 300 H 710" class="arrow-line" marker-end="url(#arrowhead)"/>
+
+    <!-- Blockchain Ledger Block -->
+    <rect x="720" y="260" width="160" height="80" rx="4" class="ledger-block"/>
+    <text x="800" y="295" class="label">Blockchain Ledger</text>
+    <text x="800" y="315" class="numeral">(450)</text>
+
+    <!-- Bidirectional Arrow between Blockchain Ledger and Verifier (right side to left side) -->
+    <path d="M 880 300 H 920" class="arrow-line" marker-end="url(#arrowhead)" marker-start="url(#arrowhead)"/>
+
+    <!-- VERIFIER Block (positioned to the right of Blockchain Ledger) -->
+    <rect x="920" y="270" width="120" height="60" rx="4" class="verifier-block"/>
+    <text x="980" y="295" class="label">VERIFIER</text>
+    <text x="980" y="315" class="numeral">(460)</text>
+
+    <!-- Arrow from Blockchain Ledger bottom center downward to Longitudinal Audit Trail top center -->
+    <path d="M 800 340 V 410" class="arrow-line" marker-end="url(#arrowhead)"/>
+
+    <!-- LONGITUDINAL AUDIT TRAIL Block (repositioned directly below Blockchain Ledger, centered) -->
+    <rect x="690" y="410" width="200" height="60" rx="4" class="audit-block"/>
+    <text x="790" y="435" class="label">LONGITUDINAL AUDIT TRAIL</text>
+    <text x="790" y="455" class="numeral">(470)</text>
+
+    <!-- Figure Label (USPTO Format) -->
+    <text x="550" y="580" class="title-label">FIG. 4</text>
+
+</svg>

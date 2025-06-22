@@ -1,0 +1,14 @@
+{
+  "dashboard": "Panel de Control",
+  "health": "Salud",
+  "privacy": "Privacidad",
+  "settings": "Configuración",
+  "devices": "Dispositivos",
+  "insights": "Perspectivas",
+  "connect": "Conectar",
+  "connected": "Conectado",
+  "syncing": "Sincronizando",
+  "loading": "Cargando",
+  "today": "Hoy",
+  "thisWeek": "Esta Semana"
+}

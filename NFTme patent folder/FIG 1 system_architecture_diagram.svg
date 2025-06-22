@@ -1,0 +1,96 @@
+
+<svg viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg" style="background: white;">
+    <!-- White background -->
+    <rect width="1000" height="600" fill="white"/>
+    
+    <!-- Define arrowhead marker -->
+    <defs>
+        <marker id="arrowhead" viewBox="0 0 10 10" refX="8" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="black" />
+        </marker>
+        <style>
+            .module-block {
+                fill: white;
+                stroke: black;
+                stroke-width: 1;
+            }
+            .label {
+                font-size: 14px;
+                font-weight: 400;
+                text-anchor: middle;
+                dominant-baseline: central;
+                pointer-events: none;
+                fill: black;
+                font-family: 'Inter', Arial, sans-serif;
+            }
+            .title-label {
+                font-size: 16px;
+                font-weight: 600;
+                text-anchor: middle;
+                fill: black;
+                font-family: 'Inter', Arial, sans-serif;
+            }
+            .arrow-line {
+                stroke: black;
+                stroke-width: 1;
+                fill: none;
+            }
+            .dotted-arrow-line {
+                stroke: black;
+                stroke-width: 1;
+                fill: none;
+                stroke-dasharray: 4 4;
+            }
+        </style>
+    </defs>
+
+    <!-- Diagram Title -->
+    <text x="500" y="40" class="title-label">FIG. 1</text>
+
+    <!-- Data Ingestion Module (110) -->
+    <rect x="50" y="150" width="200" height="80" rx="2" class="module-block"/>
+    <text x="150" y="190" class="label">
+        <tspan x="150" dy="-0.6em">Data Ingestion</tspan>
+        <tspan x="150" dy="1.2em">Module (110)</tspan>
+    </text>
+
+    <!-- AI-Powered Pattern Recognition Engine (120) -->
+    <rect x="350" y="140" width="220" height="100" rx="2" class="module-block"/>
+    <text x="460" y="190" class="label">
+        <tspan x="460" dy="-0.6em">AI-Powered Pattern</tspan>
+        <tspan x="460" dy="1.2em">Recognition Engine (120)</tspan>
+    </text>
+
+    <!-- Healthcare Standards Encoder (130) -->
+    <rect x="670" y="150" width="200" height="80" rx="2" class="module-block"/>
+    <text x="770" y="190" class="label">
+        <tspan x="770" dy="-0.6em">Healthcare Standards</tspan>
+        <tspan x="770" dy="1.2em">Encoder (130)</tspan>
+    </text>
+    
+    <!-- Smart Contract Engine (140) -->
+    <rect x="375" y="350" width="200" height="80" rx="2" class="module-block"/>
+    <text x="475" y="390" class="label">
+        <tspan x="475" dy="-0.6em">Smart Contract</tspan>
+        <tspan x="475" dy="1.2em">Engine (140)</tspan>
+    </text>
+
+    <!-- Verification API (150) -->
+    <rect x="700" y="450" width="200" height="80" rx="2" class="module-block"/>
+    <text x="800" y="490" class="label">Verification API (150)</text>
+
+    <!-- ARROWS -->
+    <!-- 110 -> 120 -->
+    <path d="M 250 190 H 340" class="arrow-line" marker-end="url(#arrowhead)"/>
+    
+    <!-- 120 -> 130 -->
+    <path d="M 570 190 H 660" class="arrow-line" marker-end="url(#arrowhead)"/>
+    
+    <!-- 130 -> 140 -->
+    <path d="M 770 230 V 300 H 475 V 340" class="arrow-line" marker-end="url(#arrowhead)"/>
+    
+    <!-- 140 -> 150 (Dotted) -->
+    <path d="M 575 390 L 690 470" class="dotted-arrow-line" marker-end="url(#arrowhead)"/>
+
+</svg>
